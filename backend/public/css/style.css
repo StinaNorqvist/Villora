@@ -1,0 +1,38 @@
+/* General */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+p {
+	font-size: 20px;
+	line-height:130%;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 7px;
+}
+h1 { 
+	font-family: Georgia, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #930;
+	margin: 0px; 
+	margin-bottom: 12px;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+a { 
+	font-size: 16px;
+	color: #f90; 
+	text-decoration: none;
+}
+a:hover {  
+	text-decoration: underline;
+}
+

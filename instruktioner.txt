@@ -1,0 +1,7 @@
+1. Klona ner mallen för ett Vue vite projekt som ni har fått från Jon
+npx degit jonkri/vite-vue-template#project frontend
+
+2. För att starta Vue projektet, skriv i terminalen:
+cd frontend
+npm install
+npm run dev

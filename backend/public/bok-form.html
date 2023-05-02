@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<form method="POST" id="formBok">
+    <p>Titel:</p>
+    <p><input type="text" id="bokTitel" name="bokTitel"></p>
+    <p>Författare:</p>
+    <p><input type="text" id="bokForfattare" name="bokForfattare"></p>
+    <p>Isbn:</p>
+    <p><input type="text" id="bokIsbn" name="bokIsbn"></p>
+    <p>Pris:</p>
+    <p><input type="text" id="bokPris" name="bokPris"></p>
+    <p>Kategori</p>
+    <p>
+        <select id="bokKategoriId" name="bokKategoriId">
+            <option value="1">Roman</option>
+            <option value="2">Barnbok</option>
+            <option value="3">Sci-fi</option>
+        </select>
+    </p>
+    <p><input type="submit" value="Lägg till"></p>
+</form>
+<p id="output"></p>
+<p><a href="bok.html">Visa alla böcker</a></p>
+
+<script src="js/fetch-bok-post.js"></script>
+</body>
+</html>

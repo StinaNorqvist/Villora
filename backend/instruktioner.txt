@@ -1,0 +1,46 @@
+Detta är samma kod som i exemplet node-mysql-ver1 förutom att vi har gjort en egen module med connection till MySQL-databasen.
+Har du redan skapat databasen kan du hoppa till Node-applikationen
+
+Databasen:
+Skapa en ny databas i MySQL med Datagrip. du ska sedan ha samma namn i din connection i server.js.
+Skapa tabellerna bok och kategori, skapa ett unikt idnex för ISBN, samt några rader data med insert into. Se filen bok-mysql.txt
+
+Node-applikationen:
+Installera först med npm, öppna terminlafönstret i samma katalog som du ska köra filerna.
+
+1. Skapa package.json fil
+npm init
+
+2. Installera Express (lokalt i den katalog du har filerna)
+npm install express
+
+3. Installera body-parser (https://expressjs.com/en/resources/middleware/body-parser.html)
+npm install body-parser
+
+4. Installera MySQL
+npm install mysql
+
+5. Installera cors (Behövs inte i nuläget men om man använder Vue Vite då man startar upp en lokal webbserver på ett annat port-nummer behöver man ha stöd för cors-request)
+(https://expressjs.com/en/resources/middleware/cors.html)
+npm install cors
+-----
+
+Kör koden i ett terminalfönster i samma katalog
+node server.js
+
+--
+OBS!
+Man kan få problem med att man inte kan använda root användaren i sin connection.
+Nedan kod löser det genom att skapa en ny användare som har de inställningar som krävs
+Exempel på felmeddelande: mysql_native Client does not support authentication protocol requested by server; consider upgrading MySQL client
+SQL-kod att köra i Datagrip mot MySQL:
+CREATE USER 'rootuser'@'%' IDENTIFIED WITH mysql_native_password BY 'sitar123';
+GRANT ALL PRIVILEGES ON *.* TO 'rootuser'@'%';
+FLUSH PRIVILEGES;
+
+SQL-kod för att visa alla anänvdare i databasen:
+SELECT user FROM mysql.user;
+
+--
+https://www.restapiexample.com/build-rest-api/create-rest-api-using-node-js-mysql-express/
+https://www.tutsmake.com/node-express-js-creating-a-restful-api-mysql-example/

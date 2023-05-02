@@ -1,0 +1,67 @@
+CREATE TABLE user (
+    userId INT NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(225),
+    userPhone INT,
+    userMail varchar(225),
+    PRIMARY KEY (userId)
+);
+
+CREATE TABLE style (
+    styleId INT NOT NULL AUTO_INCREMENT,
+    styleName VARCHAR(50),
+    styleDescription VARCHAR(250),
+    PRIMARY KEY (styleId)
+);
+
+CREATE TABLE house (
+    houseId INT NOT NULL AUTO_INCREMENT,
+    houseName VARCHAR(100),
+    housePrice INT,
+    houseFloors INT,
+    houseSquareFeet varchar(50),
+    houseBedrooms INT,
+    houseBathrooms INT,
+    houseStyle INT,
+    PRIMARY KEY (houseId),
+    FOREIGN KEY (houseStyle) REFERENCES style(styleId)
+);
+
+CREATE TABLE material (
+    materialId INT NOT NULL AUTO_INCREMENT,
+    materialName VARCHAR(50),
+    PRIMARY KEY (materialId)
+);
+
+CREATE TABLE houseMaterial (
+    houseMaterialId INT NOT NULL AUTO_INCREMENT,
+    houseMaterialHID INT,
+    houseMaterialMID INT,
+    PRIMARY KEY (houseMaterialId),
+    FOREIGN KEY (houseMaterialHID) REFERENCES house(houseId),
+    FOREIGN KEY (houseMaterialMID) REFERENCES material(materialId)
+);
+
+CREATE TABLE orders (
+    orderId INT NOT NULL AUTO_INCREMENT,
+    orderUID INT,
+    orderHID INT,
+    PRIMARY KEY (orderId),
+    FOREIGN KEY (orderUID) REFERENCES user(userId),
+    FOREIGN KEY (orderHID) REFERENCES house(houseId)
+);
+
+CREATE TABLE favorites (
+    favoriteId INT NOT NULL AUTO_INCREMENT,
+    favoriteUID INT,
+    favoriteHID INT,
+    PRIMARY KEY (favoriteId),
+    FOREIGN KEY (favoriteUID) REFERENCES user(userId),
+    FOREIGN KEY (favoriteHID) REFERENCES house(houseId)
+);
+
+SELECT * FROM favorites;
+SELECT * FROM house;
+SELECT * FROM user;
+SELECT * FROM style;
+SELECT * FROM material;
+SELECT * FROM houseMaterial;
