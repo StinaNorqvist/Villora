@@ -2,12 +2,21 @@
   import CitiesList from './components/CitiesList.vue'
   import CounterButton from './components/CounterButton.vue'
   import HelloWorld from './components/HelloWorld.vue'
+  import fetch from '../../backend/fetch.js'
 
   export default {
     components: {
       CitiesList,
       CounterButton,
       HelloWorld
+    },
+    created() {
+      this.houses = fetch.house
+    },
+    data() {
+      return {
+        houses: null
+      }
     }
   }
 </script>

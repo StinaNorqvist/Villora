@@ -65,3 +65,13 @@ SELECT * FROM user;
 SELECT * FROM style;
 SELECT * FROM material;
 SELECT * FROM houseMaterial;
+
+
+INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseStyle)
+VALUES ('Modern Mansion', 4580, 3, '8000 sq ft', 6, 8, null),
+('Luxury Penthouse', 3750, 1, '5000 sq ft', 3, 4, null),
+('Cozy Cottage', 3400, 1, '1500 sq ft', 2, 2, null),
+('Rustic Retreat', 4960, 2, '6000 sq ft', 4, 5, null),
+('Beachfront Villa', 6800, 2, '12000 sq ft', 7, 9, null),
+('Mountain Chalet', 6300, 3, '10000 sq ft', 5, 6, null),
+('Colonial Estate', 5300, 2, '9000 sq ft', 4, 6, null);
