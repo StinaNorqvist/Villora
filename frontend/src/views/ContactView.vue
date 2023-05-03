@@ -1,1 +1,4 @@
-<template><h1>Kontakt</h1></template>
+<template>
+  <h1>Kontakt</h1>
+  <p>test</p>
+</template>
