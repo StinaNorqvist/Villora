@@ -68,31 +68,41 @@ SELECT * FROM houseMaterial;
 
 -- Josefine
 INSERT INTO user(userName, userPhone, userMail)
-VALUES 
+VALUES
 ('Josefine Brolin', 0730399986, 'josefinebrolin95@gmail.com'),
 -- Stina
-('Stina Norqvist', 0730343236, 'norqvist.stina@gmail.com');
+('Stina Norqvist', 0730343236, 'norqvist.stina@gmail.com'),
+-- Malin
+('Malin Almqvist', 0735123123, 'malin123@mail.com');
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)
-VALUES 
+VALUES
 ('Cottage', 'Cottage houses are typically small, cozy, and picturesque homes that often feature sloping roofs, asymmetrical facades, and a charming, rustic aesthetic.'),
 ('Country', 'Country homes are spacious and cozy, with warm rustic charm. They feature wood siding, large windows, and welcoming front porches. Inside, there may be exposed beams, fireplaces, and a cozy atmosphere.'),
 ('Craftsman', 'Craftsman homes have low-pitched roofs, wide porches, and handcrafted details like exposed rafters. They use natural materials and emphasize simplicity, function, and quality.'),
 -- Stina
 ('Beach', 'Beach style is a casual design with natural light, open spaces, and an indoor-outdoor connection. It has large windows, natural materials, and a neutral palette evoking the feel of sand and sea.'),
 ('Bungalow', 'The Bungalow style is a low-profile and cozy architectural design that emphasizes simplicity, functionality, and craftsmanship. It often features a single-story layout, a wide front porch, and natural materials such as wood and stone.'),
-('Cabin', 'The Cabin style is a cozy and rustic design with natural materials, functionality, and a simple gabled roof. It''s often located in a woodsy area and features an earthy color palette with natural wood textures.');
+('Cabin', 'The Cabin style is a cozy and rustic design with natural materials, functionality, and a simple gabled roof. It''s often located in a woodsy area and features an earthy color palette with natural wood textures.'),
+-- Malin
+('Classical', 'Our Classical homes exude timeless elegance, with symmetrical façades, grand columns, and luxurious finishes inspired by Greek and Roman architecture. With balance and proportion, they embody enduring refined beauty.'),
+('Colonial', 'Our Colonial homes evoke a sense of history and tradition. With their symmetrical facades, central entrances, and multi-paned windows, they embody classic American style. Interiors feature warm woodwork, traditional details, and a formal layout.'),
+('Contemporary', ('Our Contemporary homes embrace clean lines, minimalist design, and bold geometric shapes.  With a focus on simplicity and functionality, our Contemporary homes offer a sleek and sophisticated living experience that is both stylish and practical.'));
 
 -- Josefine
 INSERT INTO material(materialName)
 VALUES ('Vinyl siding'),
        ('Glass'),
-       ('Aluminum siding'), 
--- Stina 
+       ('Aluminum siding'),
+-- Stina
        ('Concrete'),
        ('Brick'),
-       ('Wood');
+       ('Wood'),
+-- Malin
+       ('Stone'),
+       ('Metal'),
+       ('Stucco');
 
 -- Gemensamt
 INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseStyle)
