@@ -66,7 +66,23 @@ SELECT * FROM style;
 SELECT * FROM material;
 SELECT * FROM houseMaterial;
 
+-- Josefine
+INSERT INTO user(userName, userPhone, userMail)
+VALUES ('Josefine Brolin', 0730399986, 'josefinebrolin95@gmail.com');
 
+-- Josefine
+INSERT INTO style(styleName, styleDescription)
+VALUES ('Cottage', 'Cottage houses are typically small, cozy, and picturesque homes that often feature sloping roofs, asymmetrical facades, and a charming, rustic aesthetic.'),
+       ('Country', 'Country homes are spacious and cozy, with warm rustic charm. They feature wood siding, large windows, and welcoming front porches. Inside, there may be exposed beams, fireplaces, and a cozy atmosphere.'),
+       ('Craftsman', 'Craftsman homes have low-pitched roofs, wide porches, and handcrafted details like exposed rafters. They use natural materials and emphasize simplicity, function, and quality.');
+
+-- Josefine
+INSERT INTO material(materialName)
+VALUES ('Vinyl siding'),
+       ('Glass'),
+       ('Aluminum siding');
+
+-- Gemensamt
 INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseStyle)
 VALUES ('Modern Mansion', 4580, 3, '8000 sq ft', 6, 8, null),
 ('Luxury Penthouse', 3750, 1, '5000 sq ft', 3, 4, null),
