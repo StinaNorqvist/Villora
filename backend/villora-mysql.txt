@@ -76,6 +76,8 @@ VALUES
 ('Malin Alvist', 0731245678, 'malin123@mail.com'),
 -- Tatiana
 ('Tatiana lop', 0761234567, 'tatiana123@gmail.com');
+--Nassim
+('Nassim benwazi',0712121232,'nasdos123@gmail.com)
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)
@@ -90,11 +92,15 @@ VALUES
 -- Malin
 ('Classical', 'Our Classical homes exude timeless elegance, with symmetrical façades, grand columns, and luxurious finishes inspired by Greek and Roman architecture. With balance and proportion, they embody enduring refined beauty.'),
 ('Colonial', 'Our Colonial homes evoke a sense of history and tradition. With their symmetrical facades, central entrances, and multi-paned windows, they embody classic American style. Interiors feature warm woodwork, traditional details, and a formal layout.'),
-('Contemporary', ('Our Contemporary homes embrace clean lines, minimalist design, and bold geometric shapes.  With a focus on simplicity and functionality, our Contemporary homes offer a sleek and sophisticated living experience that is both stylish and practical.'),
+('Contemporary', 'Our Contemporary homes embrace clean lines, minimalist design, and bold geometric shapes.  With a focus on simplicity and functionality, our Contemporary homes offer a sleek and sophisticated living experience that is both stylish and practical.'),
 -- Tatiana
 ('Mediterranean', 'A style characterized by warm earthy colors, natural materials, and rustic textures.'),
   ('Modern', 'A style characterized by sleek lines, neutral colors, and minimalist design.'),
   ('Prairie', 'A style characterized by open spaces, natural light, and earthy color palettes.');
+-- Nassim
+('Timber', 'A style featuring natural wood elements, warm earthy colors, and a rustic feel.'),
+('Cedar shingles', 'A style characterized by clean lines, neutral colors, and a minimalist design, often with cedar shingles used as a prominent feature.'),
+('Brick veneer', 'A timeless and classic option for home exteriors. With its natural earthy colors and durable texture, it adds a touch of warmth and sophistication to any home..');
 
 -- Josefine
 INSERT INTO material(materialName)
@@ -113,6 +119,10 @@ VALUES ('Vinyl siding'),
          ('Tile'),
          ('Engineered wood'),
          ('Synthetic stucco');
+-- Nassim
+       ('Timber'),
+       ('Cedar shingles'),
+       ('Brick veneer');         
 
 
 -- Gemensamt
