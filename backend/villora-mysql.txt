@@ -69,11 +69,13 @@ SELECT * FROM houseMaterial;
 -- Josefine
 INSERT INTO user(userName, userPhone, userMail)
 VALUES
-('Josefine Brolin', 0730399986, 'josefinebrolin95@gmail.com'),
+('Josefine lolin', 0734567891, 'josefine123@gmail.com'),
 -- Stina
-('Stina Norqvist', 0730343236, 'norqvist.stina@gmail.com'),
+('Stina Nor', 0739876543, 'stina123@gmail.com'),
 -- Malin
-('Malin Almqvist', 0735123123, 'malin123@mail.com');
+('Malin Alvist', 0731245678, 'malin123@mail.com');
+-- Tatiana
+('Tatiana lop', 0761234567, 'tatiana123@gmail.com');
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)
@@ -89,6 +91,10 @@ VALUES
 ('Classical', 'Our Classical homes exude timeless elegance, with symmetrical façades, grand columns, and luxurious finishes inspired by Greek and Roman architecture. With balance and proportion, they embody enduring refined beauty.'),
 ('Colonial', 'Our Colonial homes evoke a sense of history and tradition. With their symmetrical facades, central entrances, and multi-paned windows, they embody classic American style. Interiors feature warm woodwork, traditional details, and a formal layout.'),
 ('Contemporary', ('Our Contemporary homes embrace clean lines, minimalist design, and bold geometric shapes.  With a focus on simplicity and functionality, our Contemporary homes offer a sleek and sophisticated living experience that is both stylish and practical.'));
+-- Tatiana
+('Mediterranean', 'A style characterized by warm earthy colors, natural materials, and rustic textures.'),
+  ('Modern', 'A style characterized by sleek lines, neutral colors, and minimalist design.'),
+  ('Prairie', 'A style characterized by open spaces, natural light, and earthy color palettes.');
 
 -- Josefine
 INSERT INTO material(materialName)
@@ -103,6 +109,11 @@ VALUES ('Vinyl siding'),
        ('Stone'),
        ('Metal'),
        ('Stucco');
+-- Tatiana
+         ('Tile'),
+         ('Engineered wood'),
+         ('Synthetic stucco');
+
 
 -- Gemensamt
 INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseStyle)
