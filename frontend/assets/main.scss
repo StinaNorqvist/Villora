@@ -1,0 +1,64 @@
+@import './fonts.scss';
+
+$body-bg: #FAFAFA;
+
+$body-color: #201E1D;
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 250;
+  font-size: 75px;
+  line-height: 106px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Lato';
+font-style: italic;
+font-weight: 250;
+font-size: 50px;
+text-align: center;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.cursive {
+  font-family: 'Inter', sans-serif;
+font-style: italic;
+font-size: 38px;
+font-weight: 100;
+text-align: center;
+}
+
+.light {
+  color: #fafafa
+}
+
+.lightbrown {
+  background-color: #615648;
+}
+
+.darkbrown {
+  background-color: #201E1D;
+}
+
+.glassEffect {
+  background: rgba(97, 86, 72, 0.5);
+backdrop-filter: blur(15px);
+}

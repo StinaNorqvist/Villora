@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "@fontsource/inter": "^4.5.15",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
+    "lato-font": "^3.0.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0"
@@ -8,6 +12,7 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.32.0",
     "eslint-plugin-vue": "^9.9.0",
+    "sass": "^1.62.1",
     "vite": "^4.0.4"
   },
   "name": "my-project",
