@@ -78,6 +78,8 @@ VALUES
 ('Tatiana lop', 0761234567, 'tatiana123@gmail.com');
 --Nassim
 ('Nassim benwazi',0712121232,'nasdos123@gmail.com)
+--Abdul 
+('ciscobugger', 112, 'xizko10@gmail.com');
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)
@@ -101,6 +103,10 @@ VALUES
 ('Timber', 'A style featuring natural wood elements, warm earthy colors, and a rustic feel.'),
 ('Cedar shingles', 'A style characterized by clean lines, neutral colors, and a minimalist design, often with cedar shingles used as a prominent feature.'),
 ('Brick veneer', 'A timeless and classic option for home exteriors. With its natural earthy colors and durable texture, it adds a touch of warmth and sophistication to any home..');
+--abdul 
+('European', 'A style characterized by architectural elements from various European regions, often featuring stucco, stone, and brick facades, along with steep roofs and intricate detailing.'),
+('Farmhouse', 'A style rooted in practicality and rural life, often featuring simple and functional design elements, with a mix of traditional and modern aesthetics, incorporating wood, neutral colors, and cozy textures.'),
+('Log', 'A classic and timeless option for home exteriors, featuring exposed logs or timbers, natural wood colors, and a rugged appearance, evoking a sense of connection with nature and warmth in the overall design.');
 
 -- Josefine
 INSERT INTO material(materialName)
@@ -123,7 +129,10 @@ VALUES ('Vinyl siding'),
        ('Timber'),
        ('Cedar shingles'),
        ('Brick veneer');         
-
+-- abdul 
+       ('Cement fiber siding'),
+       ('Asphalt shingles'),
+       ('Slate');
 
 -- Gemensamt
 INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseStyle)
