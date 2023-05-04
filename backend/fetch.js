@@ -9,6 +9,16 @@ function house() {
 }
 house();
 
+function material() {
+  fetch("http://localhost:3000/api/material")
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data, "testar material");
+    });
+}
+material();
+
 export default {
   house,
+  material,
 };

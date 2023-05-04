@@ -11,11 +11,13 @@
       HelloWorld
     },
     created() {
-      this.houses = fetch.house
+      this.houses = fetch.house,
+      this.materials = fetch.house
     },
     data() {
       return {
-        houses: null
+        houses: null,
+        materials: null
       }
     }
   }
