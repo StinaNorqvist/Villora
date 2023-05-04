@@ -12,10 +12,14 @@
     },
     created() {
       this.houses = fetch.house
+      this.styles = fetch.style
+      this.users = fetch.user
     },
     data() {
       return {
-        houses: null
+        houses: null,
+        styles: null,
+        users: null
       }
     }
   }
