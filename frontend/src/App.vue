@@ -25,7 +25,7 @@
   <nav>
     <ul>
       <li>
-        <RouterLink to="/">Hem</RouterLink>
+        <RouterLink to="/">Heem</RouterLink>
       </li>
       <li>
         <RouterLink to="/about">Om</RouterLink>
