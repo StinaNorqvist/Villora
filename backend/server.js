@@ -14,10 +14,8 @@ const port = 3000;
 const houseRoutes = require('./routes/house')
 const styleRoutes = require('./routes/style')
 const userRoutes = require('./routes/user')
+const materialRoutes = require("./routes/material");
 
-app.use(houseRoutes)
-app.use(styleRoutes)
-app.use(userRoutes)
+app.use(houseRoutes, styleRoutes, userRoutes, materialRoutes)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-

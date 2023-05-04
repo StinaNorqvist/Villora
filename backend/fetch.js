@@ -25,13 +25,22 @@ function user() {
   });
 }
 
+function material() {
+  fetch("http://localhost:3000/api/material")
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data, "testar material");
+    });
+}
 
 house();
 style();
 user();
+material();
 
 export default {
   house,
   style,
-  user
+  user,
+  material
 };

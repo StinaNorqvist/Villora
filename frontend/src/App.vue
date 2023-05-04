@@ -14,12 +14,15 @@
       this.houses = fetch.house
       this.styles = fetch.style
       this.users = fetch.user
+      this.materials = fetch.material
     },
+
     data() {
       return {
         houses: null,
         styles: null,
-        users: null
+        users: null,
+        materials: null
       }
     }
   }
