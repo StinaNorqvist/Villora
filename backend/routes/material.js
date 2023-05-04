@@ -63,7 +63,7 @@ router.post("/api/material", async (req, res) => {
 
 router.put("/api/material", async (req, res) => {
   let sql = "UPDATE material SET materialName = ? WHERE materialId = ?";
-  let params = [req.body.materialName];
+  let params = [req.body.materialName, req.body.materialId];
 
   try {
     await connection.query(sql, params, function (error, results, fields) {
