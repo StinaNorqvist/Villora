@@ -2,8 +2,8 @@ const express = require("express");
 const connection = require("../connection");
 const router = express.Router();
 
-router.get("/api/user", async (req, res) => {
-  let sql = "SELECT * FROM user";
+router.get("/api/order", async (req, res) => {
+  let sql = "SELECT * FROM orders";
   try {
     await connection.query(sql, function (error, results, fields) {
       if (error) {
@@ -18,8 +18,8 @@ router.get("/api/user", async (req, res) => {
   }
 });
 
-router.get("/api/user/:id", async (req, res) => {
-  let sql = "SELECT * FROM user WHERE userId = ?";
+router.get("/api/order/:id", async (req, res) => {
+  let sql = "SELECT * FROM orders WHERE orderId = ?";
   try {
     await connection.query(
       sql,
@@ -38,9 +38,9 @@ router.get("/api/user/:id", async (req, res) => {
   }
 });
 
-router.post("/api/user", async (req, res) => {
-  let sql = "INSERT INTO user (userName, userPhone, userMail) VALUES (?,?,?)";
-  let params = [req.body.userName, req.body.userPhone, req.body.userMail];
+router.post("/api/order", async (req, res) => {
+  let sql = "INSERT INTO orders (orderUID, orderHID) VALUES (?,?)";
+  let params = [req.body.orderUID, req.body.orderHID];
 
   try {
     await connection.query(sql, params, function (error, results, fields) {
@@ -50,7 +50,7 @@ router.post("/api/user", async (req, res) => {
       return res.status(201).json({
         success: true,
         error: "",
-        message: "You successfully added a new user!",
+        message: "You successfully added a new order!",
       });
     });
   } catch (error) {
@@ -61,15 +61,9 @@ router.post("/api/user", async (req, res) => {
   }
 });
 
-router.put("/api/user", async (req, res) => {
-  let sql =
-    "UPDATE user SET userName = ?, userPhone = ?, userMail = ? WHERE userId = ?";
-  let params = [
-    req.body.userName,
-    req.body.userPhone,
-    req.body.userMail,
-    req.body.userId,
-  ];
+router.put("/api/order", async (req, res) => {
+  let sql = "UPDATE orders SET orderUID = ?, orderHID = ? WHERE orderId = ?";
+  let params = [req.body.orderUID, req.body.orderHID, req.body.orderId];
 
   try {
     await connection.query(sql, params, function (error, results, fields) {
@@ -89,14 +83,14 @@ router.put("/api/user", async (req, res) => {
   }
 });
 
-router.delete("/api/user", async (req, res) => {
+router.delete("/api/order", async (req, res) => {
   console.log(req.body);
-  let sql = "DELETE FROM user WHERE userId = ?";
+  let sql = "DELETE FROM orders WHERE orderId = ?";
 
   try {
     await connection.query(
       sql,
-      [req.body.userId],
+      [req.body.orderId],
       function (error, results, fields) {
         if (error) {
           if (error) throw error;
@@ -104,7 +98,7 @@ router.delete("/api/user", async (req, res) => {
         return res.status(201).json({
           success: true,
           error: "",
-          message: "User is now deleted!",
+          message: "Order is now deleted!",
         });
       }
     );
@@ -116,68 +110,45 @@ router.delete("/api/user", async (req, res) => {
   }
 });
 
-// delete user, first deleting favorite & order
-
-router.delete("/api/user-delete", async (req, res) => {
-  console.log(req.body);
-
-  let sqlFavorite = "DELETE FROM favorites WHERE favoriteUID = ?";
+router.get("/api/order-list", async (req, res) => {
+  let sql = `SELECT userName, houseName
+FROM user
+INNER JOIN orders on user.userId = orderUID
+INNER JOIN house on orderHID = houseId`;
 
   try {
-    await connection.query(
-      sqlFavorite,
-      [req.body.favoriteUID],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
       }
-    );
+      res.json(results);
+    });
   } catch (error) {
     return res.status(500).json({
-      success: false,
       error: error.message,
     });
   }
+});
 
-  let sqlOrder = "DELETE FROM orders WHERE orderUID = ?";
+// GET http://localhost:3000/api/order-count/1
+router.get("/api/order-count/:id", async (req, res) => {
+  let sql = `SELECT COUNT(*) AS countOrders FROM user
+  INNER JOIN orders o on user.userId = o.orderUID
+  WHERE userId = ?;`;
 
   try {
     await connection.query(
-      sqlOrder,
-      [req.body.orderUID],
+      sql,
+      [req.params.id],
       function (error, results, fields) {
         if (error) {
           if (error) throw error;
         }
+        res.json(results);
       }
     );
   } catch (error) {
     return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-  let sqlUser = "DELETE FROM user WHERE userId = ?";
-
-  try {
-    await connection.query(
-      sqlUser,
-      [req.body.userId],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-        return res.status(201).json({
-          success: true,
-          error: "",
-          message: "User is now deleted!",
-        });
-      }
-    );
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
       error: error.message,
     });
   }

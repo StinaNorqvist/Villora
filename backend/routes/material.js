@@ -83,8 +83,35 @@ router.put("/api/material", async (req, res) => {
   }
 });
 
+// FUNGERAR EJ
 router.delete("/api/material", async (req, res) => {
   console.log(req.body);
+
+  let sqlHouseMaterial = "DELETE FROM houseMaterial WHERE houseMaterialMID = ?";
+
+  try {
+    await connection.query(
+      sqlHouseMaterial,
+      [req.body.houseMaterialMID],
+      function (error, results, fields) {
+        if (error) {
+          if (error) throw error;
+        }
+        return res.status(201).json({
+          success: true,
+          error: "",
+          message: "HouseMaterial connection is now deleted!",
+        });
+      }
+    );
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+
+
   let sql = "DELETE FROM material WHERE materialId = ?";
 
   try {
@@ -98,7 +125,7 @@ router.delete("/api/material", async (req, res) => {
         return res.status(201).json({
           success: true,
           error: "",
-          message: "material is now deleted!",
+          message: "Material is now deleted!",
         });
       }
     );

@@ -2,8 +2,8 @@ const express = require("express");
 const connection = require("../connection");
 const router = express.Router();
 
-router.get("/api/user", async (req, res) => {
-  let sql = "SELECT * FROM user";
+router.get("/api/favorite", async (req, res) => {
+  let sql = "SELECT * FROM favorites";
   try {
     await connection.query(sql, function (error, results, fields) {
       if (error) {
@@ -18,8 +18,8 @@ router.get("/api/user", async (req, res) => {
   }
 });
 
-router.get("/api/user/:id", async (req, res) => {
-  let sql = "SELECT * FROM user WHERE userId = ?";
+router.get("/api/favorite/:id", async (req, res) => {
+  let sql = "SELECT * FROM favorite WHERE favoriteId = ?";
   try {
     await connection.query(
       sql,
@@ -38,9 +38,9 @@ router.get("/api/user/:id", async (req, res) => {
   }
 });
 
-router.post("/api/user", async (req, res) => {
-  let sql = "INSERT INTO user (userName, userPhone, userMail) VALUES (?,?,?)";
-  let params = [req.body.userName, req.body.userPhone, req.body.userMail];
+router.post("/api/favorite", async (req, res) => {
+  let sql = "INSERT INTO favorites (favoriteUID, favoriteHID) VALUES (?,?)";
+  let params = [req.body.favoriteUID, req.body.favoriteHID];
 
   try {
     await connection.query(sql, params, function (error, results, fields) {
@@ -50,7 +50,7 @@ router.post("/api/user", async (req, res) => {
       return res.status(201).json({
         success: true,
         error: "",
-        message: "You successfully added a new user!",
+        message: "You successfully added a new favorite!",
       });
     });
   } catch (error) {
@@ -61,14 +61,13 @@ router.post("/api/user", async (req, res) => {
   }
 });
 
-router.put("/api/user", async (req, res) => {
+router.put("/api/favorite", async (req, res) => {
   let sql =
-    "UPDATE user SET userName = ?, userPhone = ?, userMail = ? WHERE userId = ?";
+    "UPDATE favorites SET favoriteUID = ?, favoriteHID = ? WHERE favoriteId = ?";
   let params = [
-    req.body.userName,
-    req.body.userPhone,
-    req.body.userMail,
-    req.body.userId,
+    req.body.favoriteUID,
+    req.body.favoriteHID,
+    req.body.favoriteId,
   ];
 
   try {
@@ -89,14 +88,14 @@ router.put("/api/user", async (req, res) => {
   }
 });
 
-router.delete("/api/user", async (req, res) => {
+router.delete("/api/favorite", async (req, res) => {
   console.log(req.body);
-  let sql = "DELETE FROM user WHERE userId = ?";
+  let sql = "DELETE FROM favorites WHERE favoriteId = ?";
 
   try {
     await connection.query(
       sql,
-      [req.body.userId],
+      [req.body.favoriteId],
       function (error, results, fields) {
         if (error) {
           if (error) throw error;
@@ -104,7 +103,7 @@ router.delete("/api/user", async (req, res) => {
         return res.status(201).json({
           success: true,
           error: "",
-          message: "User is now deleted!",
+          message: "Favorite is now deleted!",
         });
       }
     );
@@ -116,68 +115,46 @@ router.delete("/api/user", async (req, res) => {
   }
 });
 
-// delete user, first deleting favorite & order
-
-router.delete("/api/user-delete", async (req, res) => {
-  console.log(req.body);
-
-  let sqlFavorite = "DELETE FROM favorites WHERE favoriteUID = ?";
-
+router.get("/api/favorite-list", async (req, res) => {
+  let sql = `SELECT userName, houseName
+  FROM user
+  INNER JOIN favorites ON userId = favoriteUID
+   JOIN house ON  houseId = favoriteHID`;
   try {
-    await connection.query(
-      sqlFavorite,
-      [req.body.favoriteUID],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
       }
-    );
+      res.json(results);
+    });
   } catch (error) {
     return res.status(500).json({
-      success: false,
       error: error.message,
     });
   }
+});
 
-  let sqlOrder = "DELETE FROM orders WHERE orderUID = ?";
+// GET http://localhost:3000/api/favorite-count/1
+router.get("/api/favorite-count/:id", async (req, res) => {
+  let sql = `SELECT COUNT(*) AS countFavorites
+  FROM favorites
+  INNER JOIN user u on favorites.favoriteUID = u.userId
+  INNER JOIN house h on favorites.favoriteHID = h.houseId
+  WHERE houseId = ?;`;
 
   try {
     await connection.query(
-      sqlOrder,
-      [req.body.orderUID],
+      sql,
+      [req.params.id],
       function (error, results, fields) {
         if (error) {
           if (error) throw error;
         }
+        res.json(results);
       }
     );
   } catch (error) {
     return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-  let sqlUser = "DELETE FROM user WHERE userId = ?";
-
-  try {
-    await connection.query(
-      sqlUser,
-      [req.body.userId],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-        return res.status(201).json({
-          success: true,
-          error: "",
-          message: "User is now deleted!",
-        });
-      }
-    );
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
       error: error.message,
     });
   }
