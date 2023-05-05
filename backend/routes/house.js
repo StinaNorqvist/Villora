@@ -130,22 +130,60 @@ router.get("/api/house/:id", async (req, res) => {
     }
   });
   
-  router.get("/api/books-categories", async (req, res) => {
-    let sql =
-      "SELECT * FROM kategori INNER JOIN bok ON kategori.kategoriId = bok.bokKategoriId";
-  
-    try {
-      await connection.query(sql, function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-        res.json(results);
-      });
-    } catch (error) {
-      return res.status(500).json({
-        error: error.message,
-      });
-    }
-  })
+// Inner Join: Shows houses and their styles
+router.get("/api/house/styles", async (req, res) => {
+  let sql =
+    "SELECT * FROM house INNER JOIN style ON house.houseStyle = style.styleID";
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+})
+
+// Inner Join: Shows houses and their materials
+router.get("/api/house/materials", async (req, res) => {
+  let sql =
+    "SELECT * FROM houseMaterial INNER JOIN house ON house.houseId = houseMaterial.houseMaterialHID INNER JOIN material ON material.materialId = houseMaterial.houseMaterialMID";
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+})
+
+
+// Inner Join: Shows houses, their styles and their materials
+router.get("/api/house/materials-styles", async (req, res) => {
+  let sql =
+    "SELECT * FROM houseMaterial INNER JOIN house ON house.houseId = houseMaterial.houseMaterialHID INNER JOIN material ON material.materialId = houseMaterial.houseMaterialMID INNER JOIN style ON house.houseStyle = style.styleId";
+
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+})
   
 module.exports = router

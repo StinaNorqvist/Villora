@@ -3,8 +3,8 @@ const connection = require('../connection')
 const router = express.Router()
 
 
-router.get("/api/style", async (req, res) => {
-    let sql = "SELECT * FROM style";
+router.get("/api/house-material", async (req, res) => {
+    let sql = "SELECT * FROM houseMaterial";
     try {
       await connection.query(sql, function (error, results, fields) {
         if (error) {
@@ -18,9 +18,9 @@ router.get("/api/style", async (req, res) => {
       });
     }
   });
-
-  router.get("/api/style/:id", async (req, res) => {
-    let sql = "SELECT * FROM style WHERE styleId = ?";
+  
+router.get("/api/house-material/:id", async (req, res) => {
+    let sql = "SELECT * FROM house WHERE houseId = ?";
     try {
       await connection.query(
         sql,
@@ -38,14 +38,13 @@ router.get("/api/style", async (req, res) => {
       });
     }
   });
-
-
-  router.post("/api/style", async (req, res) => {
+  
+  router.post("/api/house-material", async (req, res) => {
     let sql =
-      "INSERT INTO style (styleName, styleDescription) VALUES (?,?)";
+      "INSERT INTO houseMaterial (houseMaterialHID, houseMaterialMID) VALUES (?,?)";
     let params = [
-      req.body.styleName,
-      req.body.styleDescription
+      req.body.houseMaterialHID,
+      req.body.houseMaterialMID,
     ];
   
     try {
@@ -56,7 +55,7 @@ router.get("/api/style", async (req, res) => {
         return res.status(201).json({
           success: true,
           error: "",
-          message: "You successfully added a new style!",
+          message: "You successfully added a material to a house!",
         });
       });
     } catch (error) {
@@ -66,14 +65,14 @@ router.get("/api/style", async (req, res) => {
       });
     }
   });
-
-  router.put("/api/style/", async (req, res) => {
+  
+  router.put("/api/house-material", async (req, res) => {
     let sql =
-      "UPDATE style SET styleName = ?, styleDescription = ? WHERE styleId = ?";
+      "UPDATE houseMaterial SET houseMaterialHID = ?, houseMaterialMID = ? WHERE houseMaterialId = ?";
     let params = [
-      req.body.styleName,
-      req.body.styleDescription,
-      req.body.styleId
+      req.body.houseMaterialHID,
+      req.body.houseMaterialMID,
+      req.body.houseMaterialId,
     ];
   
     try {
@@ -93,33 +92,5 @@ router.get("/api/style", async (req, res) => {
       });
     }
   });
-
-  // VI KAN INTE TA BORT EN STIL UTAN ATT TA BORT ETT HELT HUS
-  router.delete("/api/style", async (req, res) => {
-    console.log(req.body);
-    let sql = "DELETE FROM style WHERE styleId = ?";
   
-    try {
-      await connection.query(
-        sql,
-        [req.body.styleId],
-        function (error, results, fields) {
-          if (error) {
-            if (error) throw error;
-          }
-          return res.status(201).json({
-            success: true,
-            error: "",
-            message: "Style is now deleted!",
-          });
-        }
-      );
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        error: error.message,
-      });
-    }
-  });
-
-  module.exports = router
+  module.exports = router;
