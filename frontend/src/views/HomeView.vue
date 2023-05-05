@@ -20,7 +20,7 @@
           designers work tirelessly to create beautiful and functional homes
           that are tailored to your specific requirements. Whether you're
           looking for a cozy bungalow, a modern mansion, or anything in between,
-          we have a wide range of customizable designs to choose from
+          we have a wide range of customizable designs to choose from.
         </article>
         <div id="articleLogo">
           <img
@@ -75,6 +75,15 @@
       finns class="glassEffect" som är för bakgrunden på login, create account
       och chatten
     </p>
+  </div>
+  <div>
+    <p>samling av bootstrap iconer:</p>
+    <i class="bi bi-heart" />
+    <i class="bi bi-heart-fill" />
+    <i class="bi bi-chat" />
+    <i class="bi bi-send" />
+    <i class="bi bi-x" />
+    <i class="bi bi-arrow-left" />
   </div>
 </template>
 <style>
