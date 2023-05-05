@@ -16,7 +16,15 @@ const styleRoutes = require("./routes/style");
 const userRoutes = require("./routes/user");
 const materialRoutes = require("./routes/material");
 const orderRoutes = require("./routes/order");
+const favoriteRoutes = require("./routes/favorite");
 
-app.use(houseRoutes, styleRoutes, userRoutes, materialRoutes, orderRoutes);
+app.use(
+  houseRoutes,
+  styleRoutes,
+  userRoutes,
+  materialRoutes,
+  orderRoutes,
+  favoriteRoutes
+);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
