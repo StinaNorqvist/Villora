@@ -50,6 +50,8 @@ CREATE TABLE orders (
     FOREIGN KEY (orderHID) REFERENCES house(houseId)
 );
 
+
+
 CREATE TABLE favorites (
     favoriteId INT NOT NULL AUTO_INCREMENT,
     favoriteUID INT,
@@ -59,12 +61,16 @@ CREATE TABLE favorites (
     FOREIGN KEY (favoriteHID) REFERENCES house(houseId)
 );
 
-SELECT * FROM favorites;
 SELECT * FROM house;
 SELECT * FROM user;
 SELECT * FROM style;
 SELECT * FROM material;
 SELECT * FROM houseMaterial;
+SELECT * FROM orders;
+SELECT * FROM favorites;
+
+
+
 
 -- Josefine
 INSERT INTO user(userName, userPhone, userMail)
@@ -143,3 +149,45 @@ VALUES ('Modern Mansion', 4580, 3, '8000 sq ft', 6, 8, null),
 ('Beachfront Villa', 6800, 2, '12000 sq ft', 7, 9, null),
 ('Mountain Chalet', 6300, 3, '10000 sq ft', 5, 6, null),
 ('Colonial Estate', 5300, 2, '9000 sq ft', 4, 6, null);
+
+-- Gemensamt
+INSERT INTO orders(orderUID, orderHID)
+VALUES (1, 2),
+       (2, 1),
+       (3, 5),
+       (4, 2),
+       (1, 4),
+       (5, 7),
+       (6, 6);
+-- Gemensamt
+INSERT INTO favorites(favoriteUID, favoriteHID)
+VALUES (1, 4),
+       (2, 1),
+       (3, 2),
+       (4, 2),
+       (1, 3),
+       (5, 7),
+       (6, 2);
+
+-- koppla ihop orders husnamn och användarnamn
+SELECT userName, houseName
+FROM user
+INNER JOIN orders on user.userId = orderUID
+INNER JOIN house on orderHID = houseId;
+
+-- count hur många orders en person har
+SELECT COUNT(*) AS countOrders FROM user
+INNER JOIN orders o on user.userId = o.orderUID
+WHERE userId = 1;
+
+-- koppla ihop favoriter husnamn och användarnamn
+SELECT userName, houseName
+From user
+INNER JOIN favorites ON userId = favoriteUID
+INNER JOIN house ON  houseId = favoriteHID;
+
+-- favorite count tänkt till most popular kanske
+SELECT COUNT(*) AS countFavorites FROM favorites
+INNER JOIN user u on favorites.favoriteUID = u.userId
+INNER JOIN house h on favorites.favoriteHID = h.houseId
+WHERE houseId = 3;
