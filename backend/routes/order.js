@@ -110,4 +110,48 @@ router.delete("/api/order", async (req, res) => {
   }
 });
 
+router.get("/api/order-list", async (req, res) => {
+  let sql = `SELECT userName, houseName
+FROM user
+INNER JOIN orders on user.userId = orderUID
+INNER JOIN house on orderHID = houseId`;
+
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+// GET http://localhost:3000/api/order-count/1
+router.get("/api/order-count/:id", async (req, res) => {
+  let sql = `SELECT COUNT(*) AS countOrders FROM user
+  INNER JOIN orders o on user.userId = o.orderUID
+  WHERE userId = ?;`;
+
+  try {
+    await connection.query(
+      sql,
+      [req.params.id],
+      function (error, results, fields) {
+        if (error) {
+          if (error) throw error;
+        }
+        res.json(results);
+      }
+    );
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
 module.exports = router;
