@@ -115,55 +115,6 @@ router.delete("/api/favorite", async (req, res) => {
   }
 });
 
-// delete house and favorite
-
-router.delete("/api/delete", async (req, res) => {
-  console.log(req.body);
-
-  let sqlFavorite = "DELETE FROM favorites WHERE favoriteHID = ?";
-
-  try {
-    await connection.query(
-      sqlFavorite,
-      [req.body.favoriteHID],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-      }
-    );
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-
-  let sqlHouse = "DELETE FROM house WHERE houseId = ?";
-
-  try {
-    await connection.query(
-      sqlHouse,
-      [req.body.houseId],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-        return res.status(201).json({
-          success: true,
-          error: "",
-          message: "House is now deleted!",
-        });
-      }
-    );
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
-
 router.get("/api/favorite-list", async (req, res) => {
   let sql = `SELECT userName, houseName
   FROM user
