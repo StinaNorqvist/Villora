@@ -11,11 +11,20 @@ app.use(cors());
 app.use(express.static("public"));
 const port = 3000;
 
-const houseRoutes = require('./routes/house')
-const styleRoutes = require('./routes/style')
-const userRoutes = require('./routes/user')
+const houseRoutes = require("./routes/house");
+const styleRoutes = require("./routes/style");
+const userRoutes = require("./routes/user");
 const materialRoutes = require("./routes/material");
+const orderRoutes = require("./routes/order");
+const favoriteRoutes = require("./routes/favorite");
 
-app.use(houseRoutes, styleRoutes, userRoutes, materialRoutes)
+app.use(
+  houseRoutes,
+  styleRoutes,
+  userRoutes,
+  materialRoutes,
+  orderRoutes,
+  favoriteRoutes
+);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
