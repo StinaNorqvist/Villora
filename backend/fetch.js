@@ -10,19 +10,18 @@ function house() {
 
 function style() {
   fetch("http://localhost:3000/api/style")
-  .then((response) => response.json())
-  .then(function (data) {
-    console.log(data, "Styles");
-  });
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data, "Styles");
+    });
 }
-
 
 function user() {
   fetch("http://localhost:3000/api/user")
-  .then((response) => response.json())
-  .then(function (data) {
-    console.log(data, "Users");
-  });
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data, "Users");
+    });
 }
 
 function material() {
@@ -33,14 +32,24 @@ function material() {
     });
 }
 
+function houseMaterial() {
+  fetch("http://localhost:3000/api/house-material")
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data, "testar houseMaterial");
+    });
+}
+
 house();
 style();
 user();
 material();
+houseMaterial();
 
 export default {
   house,
   style,
   user,
-  material
+  material,
+  houseMaterial,
 };
