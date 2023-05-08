@@ -3,6 +3,7 @@ CREATE TABLE user (
     userName VARCHAR(225),
     userPhone INT,
     userMail varchar(225),
+    userPassword varchar(20),
     PRIMARY KEY (userId)
 );
 
@@ -73,19 +74,19 @@ SELECT * FROM favorites;
 
 
 -- Josefine
-INSERT INTO user(userName, userPhone, userMail)
+INSERT INTO user(userName, userPhone, userMail, userPassword)
 VALUES
-('Josefine lolin', 0734567891, 'josefine123@gmail.com'),
+('Josefine lolin', 0734567891, 'josefine123@gmail.com', 'test'),
 -- Stina
-('Stina Nor', 0739876543, 'stina123@gmail.com'),
+('Stina Nor', 0739876543, 'stina123@gmail.com', 'test'),
 -- Malin
-('Malin Alvist', 0731245678, 'malin123@mail.com'),
+('Malin Alvist', 0731245678, 'malin123@mail.com', 'test'),
 -- Tatiana
-('Tatiana lop', 0761234567, 'tatiana123@gmail.com'),
+('Tatiana lop', 0761234567, 'tatiana123@gmail.com', 'test'),
 -- Nassim
-('Nassim benwazi', 0712121232, 'nasdos123@gmail.com'),
+('Nassim benwazi', 0712121232, 'nasdos123@gmail.com', 'test'),
 -- Abdul
-('ciscobugger', 112, 'xizko10@gmail.com');
+('ciscobugger', 112, 'xizko10@gmail.com', 'test');
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)
@@ -201,7 +202,7 @@ WHERE houseId = 3;
 
 
 
--- Stina Malin Abdul: 
+-- Stina Malin Abdul:
 INSERT INTO houseMaterial(houseMaterialHID, houseMaterialMID)
 VALUES (1, 3),
        (1, 2),
@@ -222,25 +223,24 @@ VALUES (1, 3),
        (7, 15),
        (7, 13);
 
--- Stina Malin Abdul: 
+-- Stina Malin Abdul:
 -- Inner Join: Hus och stil
 SELECT houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, styleName
 FROM house
 INNER JOIN style
 ON house.houseStyle = style.styleId;
 
--- Stina Malin Abdul: 
+-- Stina Malin Abdul:
 -- Inner Join: Hus och material
 SELECT house.houseName, house.housePrice, house.houseFloors, house.houseSquareFeet, house.houseBedrooms, house.houseBathrooms, material.materialName
 FROM houseMaterial
 INNER JOIN house ON house.houseId = houseMaterial.houseMaterialHID
 INNER JOIN material ON material.materialId = houseMaterial.houseMaterialMID;
 
--- Stina Malin Abdul: 
+-- Stina Malin Abdul:
 -- Inner Join: Hus, material och stil
 SELECT house.houseName, house.housePrice, house.houseFloors, house.houseSquareFeet, house.houseBedrooms, house.houseBathrooms, style.styleName, material.materialName
 FROM houseMaterial
 INNER JOIN house ON house.houseId = houseMaterial.houseMaterialHID
 INNER JOIN material ON material.materialId = houseMaterial.houseMaterialMID
 INNER JOIN style ON house.houseStyle = style.styleId;
-

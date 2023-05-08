@@ -15,7 +15,7 @@
 </script>
 <template>
   <h1>profile</h1>
-  <div v-for="user in users" :key="user.id">
+  <div v-for="user in users" :key="user">
     <h2>{{ user.userName }}</h2>
     <p>{{ '0' + user.userPhone }}</p>
     <p>{{ user }}</p>
