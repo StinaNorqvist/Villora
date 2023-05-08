@@ -4,6 +4,7 @@ import HomeView from './views/HomeView.vue'
 import ContactView from './views/ContactView.vue'
 import ItemsView from './views/ItemsView.vue'
 import CartView from './views/CartView.vue'
+import UserView from './views/UserView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -23,6 +24,10 @@ export default createRouter({
     {
       component: CartView,
       path: '/cart'
+    },
+    {
+      component: UserView,
+      path: '/profile'
     }
   ]
 })

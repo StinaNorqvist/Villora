@@ -15,6 +15,8 @@
       this.styles = fetch.style
       this.users = fetch.user
       this.materials = fetch.material
+      this.favorites = fetch.favorite
+      this.orders = fetch.order
     },
 
     data() {
@@ -23,7 +25,9 @@
         houses: null,
         styles: null,
         users: null,
-        materials: null
+        materials: null,
+        favorites: null,
+        orders: null
       }
     },
     methods: {
