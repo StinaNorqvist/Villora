@@ -18,7 +18,7 @@ function style() {
 }
 
 function user() {
-  fetch("http://localhost:3000/api/user")
+  return fetch("http://localhost:3000/api/user")
     .then((response) => response.json())
     .then(function (data) {
       console.log(data, "Users hej");
