@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 const port = 3000;
 
 const houseRoutes = require("./routes/house");
