@@ -94,6 +94,7 @@ router.get("/api/style", async (req, res) => {
     }
   });
 
+  // VI KAN INTE TA BORT EN STIL UTAN ATT TA BORT ETT HELT HUS
   router.delete("/api/style", async (req, res) => {
     console.log(req.body);
     let sql = "DELETE FROM style WHERE styleId = ?";
