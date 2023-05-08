@@ -10,6 +10,7 @@
       CounterButton,
       HelloWorld
     },
+
     created() {
       this.houses = fetch.house
       this.styles = fetch.style

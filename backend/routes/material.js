@@ -83,7 +83,11 @@ router.put("/api/material", async (req, res) => {
   }
 });
 
-// FUNGERAR EJ
+// 1. Delete the connection from houseMaterial
+// Insomnia tip: {
+// "houseMaterialMID": 2, 
+// "materialId": 2
+// }
 router.delete("/api/material", async (req, res) => {
   console.log(req.body);
 
@@ -97,11 +101,6 @@ router.delete("/api/material", async (req, res) => {
         if (error) {
           if (error) throw error;
         }
-        return res.status(201).json({
-          success: true,
-          error: "",
-          message: "HouseMaterial connection is now deleted!",
-        });
       }
     );
   } catch (error) {
@@ -111,7 +110,7 @@ router.delete("/api/material", async (req, res) => {
     });
   }
 
-
+// 2. Delete the material
   let sql = "DELETE FROM material WHERE materialId = ?";
 
   try {
