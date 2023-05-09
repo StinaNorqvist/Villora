@@ -94,7 +94,7 @@
         
         <div class="filter-buttons">
           <button @click="handleFilterOption('1floor')" :class="{ active: filterOptions.includes('1floor') }">
-            1 Floor
+            1 Floors
           </button>
           <button @click="handleFilterOption('2floor')" :class="{ active: filterOptions.includes('2floor') }">
             2 Floors
