@@ -78,6 +78,16 @@
 </script>
 
 <template>
+  <div class="intro">
+    <h1>House Plans</h1>
+    <p>
+      Welcome to Our House Plans Collection - Discover Your Dream Home Design.
+      Our collection of house plans features a wide variety of styles and sizes
+      to suit your unique needs and preferences. Whether you're looking for a
+      cozy cottage or a spacious modern home, we have a design that's perfect
+      for you.
+    </p>
+  </div>
   <!-- FILTER BUTTONS -->
   <div class="filter-buttons">
     <button
@@ -140,7 +150,7 @@
       v-for="houseItem in houseItemsProcessed"
       :key="houseItem.Id"
     >
-      <p>Name: {{ houseItem.houseName }}</p>
+      <p>{{ houseItem.houseName }}</p>
       <p>Price: {{ houseItem.housePrice }} $</p>
       <p>Floors: {{ houseItem.houseFloors }}</p>
       <p>Bedrooms: {{ houseItem.houseBedrooms }}</p>
@@ -153,48 +163,74 @@
   .filter-buttons {
     display: flex;
     margin-bottom: 10px;
+    margin-left: 40px;
   }
 
   .sort-buttons {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-left: 40px;
   }
 
   .filter-buttons button,
   .sort-buttons button {
     margin-right: 10px;
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 10px;
+    font-size: 20px;
     border: 1px solid #ccc;
     background-color: transparent;
     cursor: pointer;
+    border-radius: 5px;
+    font-weight: 200;
   }
 
   .filter-buttons button {
-    background-color: #2c3e50;
-    color: #fff;
+    background-color: #fafafa;
+    color: #000000;
   }
 
   .sort-buttons button {
-    background-color: #34495e;
-    color: #fff;
+    background-color: #fafafa;
+    color: #000000;
   }
 
   .filter-buttons button.active,
   .sort-buttons button.active {
-    background-color: #e74c3c;
+    background-color: #615648;
+    color: #fafafa;
   }
 
   .houseList {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
   }
 
   .houseItem {
-    padding: 15px;
+    width: 260px;
+    padding: 20px 0 20px 35px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f7f7f7;
+  }
+
+  .intro {
+    text-align: center;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-content: center;
+  }
+
+  .intro p {
+    align-items: center;
+  }
+
+  .intro h1 {
+    margin: -20px;
+    margin-top: 30px;
   }
 </style>
