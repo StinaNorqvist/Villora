@@ -9,6 +9,5 @@
 </script>
 
 <template>
-  <h1>House plans</h1>
   <HousePlans />
 </template>

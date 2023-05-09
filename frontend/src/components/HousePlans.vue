@@ -18,10 +18,10 @@
 
     methods: {
       handleSortOption(option) {
-        this.sortOption = option
+        this.sortOption = this.sortOption === option ? null : option
       },
       handleFilterOption(option) {
-        this.filterOption = option
+        this.filterOption = this.filterOption === option ? null : option
       }
     },
 
@@ -34,26 +34,40 @@
         // Filtering
         if (this.filterOption) {
           if (this.filterOption === '1floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 1)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 1
+            )
           } else if (this.filterOption === '2floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 2)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 2
+            )
           } else if (this.filterOption === '3floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 3)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 3
+            )
           }
         }
 
         // Sorting
         if (this.sortOption) {
           if (this.sortOption === 'name') {
-            processedItems.sort((a, z) => a.houseName.localeCompare(z.houseName))
+            processedItems.sort((a, z) =>
+              a.houseName.localeCompare(z.houseName)
+            )
           } else if (this.sortOption === 'price') {
             processedItems.sort((low, high) => low.housePrice - high.housePrice)
           } else if (this.sortOption === 'floors') {
-            processedItems.sort((low, high) => low.houseFloors - high.houseFloors)
+            processedItems.sort(
+              (low, high) => low.houseFloors - high.houseFloors
+            )
           } else if (this.sortOption === 'bedrooms') {
-            processedItems.sort((low, high) => low.houseBedrooms - high.houseBedrooms)
+            processedItems.sort(
+              (low, high) => low.houseBedrooms - high.houseBedrooms
+            )
           } else if (this.sortOption === 'bathrooms') {
-            processedItems.sort((low, high) => low.houseBathrooms - high.houseBathrooms)
+            processedItems.sort(
+              (low, high) => low.houseBathrooms - high.houseBathrooms
+            )
           }
         }
 
@@ -63,8 +77,17 @@
   }
 </script>
 
-
 <template>
+  <div class="intro">
+    <h1>House Plans</h1>
+    <p>
+      Welcome to Our House Plans Collection - Discover Your Dream Home Design.
+      Our collection of house plans features a wide variety of styles and sizes
+      to suit your unique needs and preferences. Whether you're looking for a
+      cozy cottage or a spacious modern home, we have a design that's perfect
+      for you.
+    </p>
+  </div>
   <!-- FILTER BUTTONS -->
   <div class="filter-buttons">
     <button
@@ -127,7 +150,7 @@
       v-for="houseItem in houseItemsProcessed"
       :key="houseItem.Id"
     >
-      <p>Name: {{ houseItem.houseName }}</p>
+      <p>{{ houseItem.houseName }}</p>
       <p>Price: {{ houseItem.housePrice }} $</p>
       <p>Floors: {{ houseItem.houseFloors }}</p>
       <p>Bedrooms: {{ houseItem.houseBedrooms }}</p>
@@ -137,51 +160,77 @@
 </template>
 
 <style scoped>
-.filter-buttons {
-  display: flex;
-  margin-bottom: 10px;
-}
+  .filter-buttons {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 40px;
+  }
 
-.sort-buttons {
-  display: flex;
-  margin-bottom: 20px;
-}
+  .sort-buttons {
+    display: flex;
+    margin-bottom: 50px;
+    margin-left: 40px;
+  }
 
-.filter-buttons button,
-.sort-buttons button {
-  margin-right: 10px;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  background-color: transparent;
-  cursor: pointer;
-}
+  .filter-buttons button,
+  .sort-buttons button {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 200;
+  }
 
-.filter-buttons button {
-  background-color: #2c3e50;
-  color: #fff;
-}
+  .filter-buttons button {
+    background-color: #fafafa;
+    color: #000000;
+  }
 
-.sort-buttons button {
-  background-color: #34495e;
-  color: #fff;
-}
+  .sort-buttons button {
+    background-color: #fafafa;
+    color: #000000;
+  }
 
-.filter-buttons button.active,
-.sort-buttons button.active {
-  background-color: #e74c3c;
-}
+  .filter-buttons button.active,
+  .sort-buttons button.active {
+    background-color: #615648;
+    color: #fafafa;
+  }
 
-.houseList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+  .houseList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
 
-.houseItem {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-}
+  .houseItem {
+    width: 260px;
+    padding: 20px 0 20px 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
+
+  .intro {
+    text-align: center;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-content: center;
+  }
+
+  .intro p {
+    align-items: center;
+  }
+
+  .intro h1 {
+    margin: -20px;
+    margin-top: 30px;
+  }
 </style>
