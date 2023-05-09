@@ -69,7 +69,7 @@
       <li class="navListItems">
         <RouterLink to="/contact">Contact</RouterLink>
       </li>
-      <li class="navListItems">Login</li>
+      <li class="navListItems"><RouterLink to="/login">Login</RouterLink></li>
       <li class="navListItems">
         <RouterLink to="/cart"><i class="bi bi-cart2" /></RouterLink>
       </li>
