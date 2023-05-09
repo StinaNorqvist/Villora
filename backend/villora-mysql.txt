@@ -1,7 +1,7 @@
 CREATE TABLE user (
     userId INT NOT NULL AUTO_INCREMENT,
     userName VARCHAR(225),
-    userPhone INT,
+    userPhone VARCHAR(50),
     userMail varchar(225),
     userPassword varchar(20),
     PRIMARY KEY (userId)
@@ -167,7 +167,7 @@ VALUES ('Modern Mansion', 4580, 3, '8000 sq ft', 6, 8, 4),
 ('Art Deco House', 5300, 2, '5000 sq ft', 4, 4, 15),
 ('Split-Level Home', 3400, 2, '2500 sq ft', 4, 3, 16),
 ('Japanese House', 4800, 2, '4000 sq ft', 3, 3, 17),
-('Mansion on the Hill', 12000, 4, '25000 sq ft', 12, 15, 18), 
+('Mansion on the Hill', 12000, 4, '25000 sq ft', 12, 15, 18),
 ('Greek Revival Mansion', 9500, 3, '11000 sq ft', 8, 10, 1),
 ('Artisan Cottage', 3800, 2, '2500 sq ft', 4, 3, 5),
 ('Spanish Colonial', 6700, 2, '6000 sq ft', 5, 6, 4),

@@ -95,7 +95,7 @@
             userPassword: this.userPassword
           })
         })
-        console.log(data, 'varförrörörörör')
+        // console.log(data, 'varförrörörörör')
         const data = await response.json()
         return data
       }
