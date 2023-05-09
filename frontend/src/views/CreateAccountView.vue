@@ -6,7 +6,7 @@
       class="backgroundImage"
     />
     <div class="loginAccountContainer glassEffect">
-      <form @submit="createAccount()" id="createForm" action="POST">
+      <form @submit.prevent="createAccount" id="createForm" action="POST">
         <div class="inputContainer">
           <input
             v-model="userName"

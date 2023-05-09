@@ -35,26 +35,41 @@
       toggleNav() {
         this.openNav = !this.openNav
       }
+    },
+    computed: {
+      homePage() {
+        return this.$route.path === '/'
+      }
     }
   }
 </script>
 
 <template>
   <header>
-    <img
-      src="../assets/images/headerImage.jpeg"
-      alt="header image villora"
-      id="headerImage"
-    />
-    <p class="light" id="headerText">Villora</p>
-    <div class="light" id="scrollDownContainer">
-      <p>scroll down</p>
-      <div id="arrowDown">
-        <i class="bi bi-chevron-compact-down" />
+    <div id="headerImageContainer" v-if="homePage">
+      <img
+        src="../assets/images/headerImage.jpeg"
+        alt="header image villora"
+        id="headerImage"
+      />
+      <p class="light" id="headerText">Villora</p>
+      <div class="light" id="scrollDownContainer">
+        <p>scroll down</p>
+        <div id="arrowDown">
+          <i class="bi bi-chevron-compact-down" />
+        </div>
       </div>
     </div>
+    <div id="headerBannerContainer" class="darkbrown" v-else>
+      <img
+        src="../assets/logos/iconBigLight.png"
+        alt="icon image"
+        id="headerIcon"
+      />
+      <p class="light" id="headerTextBanner">Villora</p>
+    </div>
   </header>
-  <nav class="glassEffect">
+  <nav>
     <div id="navBar" class="light">
       <div @click="toggleNav" class="navIcons">
         <i v-if="!openNav" class="bi bi-list" />
@@ -100,11 +115,17 @@
 
 <style>
   /* header mobile version  */
-  header {
+  /* header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  #headerImageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   #headerImage {
     width: 100%;
   }
@@ -117,6 +138,7 @@
     text-align: center;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    z-index: 500;
   }
   /* make scroll down container invisible  */
   #scrollDownContainer {
@@ -134,6 +156,8 @@
     text-align: center;
     text-transform: uppercase;
     height: 50px;
+    background: rgba(97, 86, 72, 0.5);
+    backdrop-filter: blur(15px);
   }
   /* hamburger meny and X (open and closed)  */
   .navIcons {
@@ -192,7 +216,12 @@
   }
   /* tablet version  */
   @media screen and (min-width: 810px) {
-    header {
+    /* header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+    #headerImageContainer {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -226,6 +255,28 @@
     }
     #headerText {
       font-size: 190px;
+    }
+
+    #headerBannerContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    #headerTextBanner {
+      font-family: 'Lato', sans-serif;
+      font-weight: 150;
+      font-size: 70px;
+      text-align: center;
+      letter-spacing: 0.565em;
+      text-transform: uppercase;
+      z-index: 500;
+    }
+
+    #headerIcon {
+      width: 170px;
+      margin: 20px;
     }
 
     /* make scroll down container visible  */
@@ -265,6 +316,7 @@
       height: 70px;
       display: flex;
       align-items: center;
+      background-color: #201e1d;
     }
     .navList {
       width: 100%;
