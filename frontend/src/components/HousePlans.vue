@@ -18,10 +18,10 @@
 
     methods: {
       handleSortOption(option) {
-        this.sortOption = option
+        this.sortOption = this.sortOption === option ? null : option
       },
       handleFilterOption(option) {
-        this.filterOption = option
+        this.filterOption = this.filterOption === option ? null : option
       }
     },
 
@@ -34,26 +34,40 @@
         // Filtering
         if (this.filterOption) {
           if (this.filterOption === '1floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 1)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 1
+            )
           } else if (this.filterOption === '2floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 2)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 2
+            )
           } else if (this.filterOption === '3floor') {
-            processedItems = processedItems.filter((item) => item.houseFloors === 3)
+            processedItems = processedItems.filter(
+              (item) => item.houseFloors === 3
+            )
           }
         }
 
         // Sorting
         if (this.sortOption) {
           if (this.sortOption === 'name') {
-            processedItems.sort((a, z) => a.houseName.localeCompare(z.houseName))
+            processedItems.sort((a, z) =>
+              a.houseName.localeCompare(z.houseName)
+            )
           } else if (this.sortOption === 'price') {
             processedItems.sort((low, high) => low.housePrice - high.housePrice)
           } else if (this.sortOption === 'floors') {
-            processedItems.sort((low, high) => low.houseFloors - high.houseFloors)
+            processedItems.sort(
+              (low, high) => low.houseFloors - high.houseFloors
+            )
           } else if (this.sortOption === 'bedrooms') {
-            processedItems.sort((low, high) => low.houseBedrooms - high.houseBedrooms)
+            processedItems.sort(
+              (low, high) => low.houseBedrooms - high.houseBedrooms
+            )
           } else if (this.sortOption === 'bathrooms') {
-            processedItems.sort((low, high) => low.houseBathrooms - high.houseBathrooms)
+            processedItems.sort(
+              (low, high) => low.houseBathrooms - high.houseBathrooms
+            )
           }
         }
 
@@ -62,7 +76,6 @@
     }
   }
 </script>
-
 
 <template>
   <!-- FILTER BUTTONS -->
@@ -137,51 +150,51 @@
 </template>
 
 <style scoped>
-.filter-buttons {
-  display: flex;
-  margin-bottom: 10px;
-}
+  .filter-buttons {
+    display: flex;
+    margin-bottom: 10px;
+  }
 
-.sort-buttons {
-  display: flex;
-  margin-bottom: 20px;
-}
+  .sort-buttons {
+    display: flex;
+    margin-bottom: 20px;
+  }
 
-.filter-buttons button,
-.sort-buttons button {
-  margin-right: 10px;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  background-color: transparent;
-  cursor: pointer;
-}
+  .filter-buttons button,
+  .sort-buttons button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
-.filter-buttons button {
-  background-color: #2c3e50;
-  color: #fff;
-}
+  .filter-buttons button {
+    background-color: #2c3e50;
+    color: #fff;
+  }
 
-.sort-buttons button {
-  background-color: #34495e;
-  color: #fff;
-}
+  .sort-buttons button {
+    background-color: #34495e;
+    color: #fff;
+  }
 
-.filter-buttons button.active,
-.sort-buttons button.active {
-  background-color: #e74c3c;
-}
+  .filter-buttons button.active,
+  .sort-buttons button.active {
+    background-color: #e74c3c;
+  }
 
-.houseList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+  .houseList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
-.houseItem {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-}
+  .houseItem {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
 </style>
