@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const session = require("express-session");
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -19,6 +20,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
 // app.use(express.static("public"));
+
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
 const port = 3000;
 
 const houseRoutes = require("./routes/house");

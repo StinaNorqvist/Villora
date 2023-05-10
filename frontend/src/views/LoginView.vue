@@ -6,9 +6,10 @@
       class="backgroundImage"
     />
     <div class="loginAccountContainer glassEffect">
-      <form id="loginForm" action="/auth" method="POST">
+      <form @submit.prevent="loginAccount" id="loginForm" action="POST">
         <div class="inputContainer">
           <input
+            v-model="userName"
             type="text"
             id="username"
             name="userName"
@@ -17,6 +18,7 @@
           /><br />
 
           <input
+            v-model="userPassword"
             type="password"
             id="password"
             name="userPassword"
@@ -36,6 +38,38 @@
     </div>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        userName: '',
+        userPassword: ''
+      }
+    },
+    methods: {
+      async loginAccount() {
+        console.log('loggar login function')
+        const response = await fetch('http://localhost:3000/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userName: this.userName,
+            userPassword: this.userPassword
+          })
+        })
+        const data = await response.json()
+
+        if (data.success) {
+          console.log('success loggin in')
+        } else {
+          console.log('failed loggin in ')
+        }
+      }
+    }
+  }
+</script>
 <style>
   .backgroundImage {
     width: 100%;
