@@ -196,6 +196,11 @@
         <p>Floors: {{ houseItem.houseFloors }}</p>
         <p>Bedrooms: {{ houseItem.houseBedrooms }}</p>
         <p>Bathrooms: {{ houseItem.houseBathrooms }}</p>
+        <input
+          type="button"
+          value="Add to cart"
+          @click="$store.commit('addToCart', houseItem)"
+        />
       </div>
     </div>
   </div>
