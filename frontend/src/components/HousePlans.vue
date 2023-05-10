@@ -150,6 +150,7 @@
       v-for="houseItem in houseItemsProcessed"
       :key="houseItem.Id"
     >
+      <img id="houseImage" :src="houseItem.houseImage" alt="housePicture" />
       <p>{{ houseItem.houseName }}</p>
       <p>Price: {{ houseItem.housePrice }} $</p>
       <p>Floors: {{ houseItem.houseFloors }}</p>
@@ -210,7 +211,6 @@
 
   .houseItem {
     width: 260px;
-    padding: 20px 0 20px 35px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f7f7f7;
@@ -232,5 +232,14 @@
   .intro h1 {
     margin: -20px;
     margin-top: 30px;
+  }
+
+  #houseImage {
+    width: 95%;
+    display: block;
+    margin: auto;
+    margin-top: 7px;
+    border-radius: 5px;
+    height: 150px;
   }
 </style>
