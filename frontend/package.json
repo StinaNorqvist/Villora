@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "lato-font": "^3.0.0",

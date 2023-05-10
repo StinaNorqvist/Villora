@@ -1,7 +1,7 @@
 CREATE TABLE user (
     userId INT NOT NULL AUTO_INCREMENT,
     userName VARCHAR(225),
-    userPhone INT,
+    userPhone VARCHAR(50),
     userMail varchar(225),
     userPassword varchar(20),
     PRIMARY KEY (userId)
@@ -179,6 +179,7 @@ VALUES
 ('Tropical Bungalow', 3200, 1, '1700 sq ft', 2, 2, 'https://b.stablecog.com/39afbd1f-58cd-4de6-a318-843cbfed4e9d.jpeg', 18),
 ('French Country Estate', 8400, 2, '7500 sq ft', 6, 7, 'https://b.stablecog.com/364c3e1e-7f0a-4366-8442-a7df429ae422.jpeg', 11),
 ('A-Frame Cabin', 2900, 1, '1300 sq ft', 2, 1, 'https://b.stablecog.com/5d88ddfb-9b36-4a83-bc32-6989c4ba12d6.jpeg', 12);
+
 
 -- Gemensamt
 INSERT INTO orders(orderUID, orderHID)
