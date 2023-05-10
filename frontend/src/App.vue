@@ -1,11 +1,8 @@
 <script>
-  
   import fetch from '../../backend/fetch.js'
 
   export default {
-    components: {
-      
-    },
+    components: {},
 
     created() {
       this.houses = fetch.house
@@ -89,7 +86,6 @@
   <main>
     <RouterView />
     <ChatBot />
-
   </main>
   <footer class="lightbrown light">
     <div id="footerAdress">
@@ -112,6 +108,9 @@
 </template>
 
 <style>
+  main {
+    width: 100%;
+  }
   /* header mobile version  */
   /* header {
     display: flex;
