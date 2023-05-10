@@ -102,10 +102,20 @@
 </script>
 
 <template>
+  <div class="intro">
+    <h1>House Plans</h1>
+    <p>
+      Welcome to Our House Plans Collection - Discover Your Dream Home Design.
+      Our collection of house plans features a wide variety of styles and sizes
+      to suit your unique needs and preferences. Whether you're looking for a
+      cozy cottage or a spacious modern home, we have a design that's perfect
+      for you.
+    </p>
+  </div>
+
   <div class="container">
     <div class="filer-container">
       <div class="filter-section">
-        <h2>Filter</h2>
         <div class="filter-options">
           <div class="filter-buttons">
             <button
@@ -131,7 +141,6 @@
       </div>
 
       <div class="sort-section">
-        <h2>Sort</h2>
         <div class="sort-buttons">
           <button
             @click="handleSortOption('name')"
@@ -272,7 +281,7 @@
     margin: auto;
     margin-top: 7px;
     border-radius: 5px;
-    height: 150px;
+    height: 200px;
   }
 
   /* Media queries for responsiveness */
