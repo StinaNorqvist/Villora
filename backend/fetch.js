@@ -59,7 +59,7 @@ function order() {
 }
 
 function contact() {
-  fetch(" http://localhost:3000/api/contact")
+  return fetch(" http://localhost:3000/api/contact")
     .then((response) => response.json())
     .then(function (data) {
       console.log(data, "testar contacts");

@@ -25,7 +25,7 @@
       }
     },
     async created() {
-      this.contact = await fetch.contact()
+      this.contacts = await fetch.contact()
       console.log(this.contact, 'testar contact')
     }
   }
