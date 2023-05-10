@@ -1,0 +1,43 @@
+{
+"name": "Malin",
+"description": "My name is Malin, 35 yrs, I'm a devoted student of JavaScript, relishing in the complexity and rhythm of its code. Each line I script is a testament to my ceaseless curiosity and passion for learning. Age is but a number, for me, it's a symbol of my tenacity and unwavering pursuit of digital mastery.",
+"github": "https://github.com/MalinAlm",
+"linkedin": "https://www.linkedin.com/in/malin-almqvist/"
+}
+
+{
+"name": "Abdul",
+"description": "Abdul, a 23-year-old software developer, excels in JavaScript, Vue, Node, SQL, WebGL, and G-SAP animations. With a strong aptitude for design and diverse creative skills, he thrives under pressure, delivering visually striking and innovative solutions.",
+"github": "https://github.com/ciscobugger",
+"linkedin": "https://www.linkedin.com/in/abdul-hussen/"
+}
+
+{
+"name": "Josefine",
+"description": "My name is Josefine, and I'm 28 years old. I'm currently studying to become a JavaScript developer, and I have a strong passion for programming. In my free time, I love spending time with my furry friend - my beloved dog who brings me so much joy and comfort. I also enjoy playing The Sims, reading books, and watching TV shows to unwind after a busy day of studying. I would describe myself as a driven and passionate individual who is dedicated to learning and pursuing my interests, both professionally and personally.",
+"github": "https://github.com/bjosefine",
+"linkedin": "https://www.linkedin.com/in/josefinebrolin"
+}
+
+
+{
+"name": "Nassim",
+"description": "I'm Nassim Ben Sassi, a dedicated and humble JavaScript developer who believes in the power of collaboration. Together with a talented group, I had the privilege of working on the Villora project, where we brought our skills together to create something remarkable. With a keen eye for detail and a passion for both frontend and backend development, I contributed to crafting a visually captivating and user-friendly website. I continuously strive for growth and learning, staying up to date with industry trends to deliver seamless online experiences. It is through the collective effort and teamwork that we were able to create the exceptional online presence of Villora",
+"github": "https://github.com/Nasbensassi",
+"linkedin": "https://www.linkedin.com/in/nassimbensassi"
+}
+
+
+{
+		"name": "Stina",
+		"description": "Hi everyone, I'm Stina, a 28-year-old JavaScript developer and I'm excited to be part of this amazing team! I've always had a passion for web development and finding new ways to bring websites to life. That's why I'm so grateful to be able to work in a field that I'm truly passionate about. I've been studying JavaScript for a while now and it's been an amazing journey. The more I learn, the more I discover how much there is to know. But that's what keeps me motivated and inspired! I'm always eager to learn more and improve my skills.",
+		"github": "https://github.com/StinaNorqvist",
+		"linkedin": "https://www.linkedin.com/in/stina-norqvist/"
+	}
+
+  	{
+		"name": "Tatiana",
+		"description": "I'm Tatiana, a passionate and driven individual, I'm a student on a remarkable journey towards becoming a JavaScript full stack developer. At 34 years old, born and raised in Sweden with parents hailing from the Cape Verde Islands, I embodies a fusion of cultures and experiences that shapes my unique perspective.",
+		"github": "https://github.com/lopesdaluz",
+		"linkedin": "https://linkedin.com/in/tlopesdaluz"
+	}
