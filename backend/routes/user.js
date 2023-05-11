@@ -39,8 +39,14 @@ router.get("/api/user/:id", async (req, res) => {
 });
 
 router.post("/api/user", async (req, res) => {
-  let sql = "INSERT INTO user (userName, userPhone, userMail) VALUES (?,?,?)";
-  let params = [req.body.userName, req.body.userPhone, req.body.userMail];
+  let sql =
+    "INSERT INTO user (userName, userPhone, userMail, userPassword) VALUES (?,?,?,?)";
+  let params = [
+    req.body.userName,
+    req.body.userPhone,
+    req.body.userMail,
+    req.body.userPassword,
+  ];
 
   try {
     await connection.query(sql, params, function (error, results, fields) {
@@ -63,12 +69,13 @@ router.post("/api/user", async (req, res) => {
 
 router.put("/api/user", async (req, res) => {
   let sql =
-    "UPDATE user SET userName = ?, userPhone = ?, userMail = ? WHERE userId = ?";
+    "UPDATE user SET userName = ?, userPhone = ?, userMail = ?, userPassword = ? WHERE userId = ?";
   let params = [
     req.body.userName,
     req.body.userPhone,
     req.body.userMail,
     req.body.userId,
+    req.body.userPassword,
   ];
 
   try {

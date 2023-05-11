@@ -69,17 +69,18 @@
           console.log(this.userName, 'usernameeee')
           this.loginSuccess = true
           console.log(this.loginSuccess)
+          sessionStorage.setItem('username', this.userName)
         } else {
           console.log('failed loggin in ')
           console.log(this.loginSuccess)
           this.failedText = 'wrong username or password, try again'
         }
-      },
-      saveUsername() {
-        sessionStorage.setItem('username', this.userName)
-        console.log(this.userName, 'username login')
-        console.log(sessionStorage)
       }
+      // saveUsername() {
+      //   sessionStorage.setItem('username', this.userName)
+      //   console.log(this.userName, 'username login')
+      //   console.log(sessionStorage)
+      // }
     },
     watch: {
       loginSuccess(newValue) {
