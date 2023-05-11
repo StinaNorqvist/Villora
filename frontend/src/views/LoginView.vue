@@ -8,6 +8,7 @@
     <div class="loginAccountContainer glassEffect">
       <form @submit.prevent="loginAccount" id="loginForm" action="POST">
         <div class="inputContainer">
+          <div id="failedText" class="light">{{ failedText }}</div>
           <input
             v-model="userName"
             type="text"
@@ -43,7 +44,9 @@
     data() {
       return {
         userName: '',
-        userPassword: ''
+        userPassword: '',
+        loginSuccess: false,
+        failedText: ''
       }
     },
     methods: {
@@ -63,8 +66,25 @@
 
         if (data.success) {
           console.log('success loggin in')
+          console.log(this.userName, 'usernameeee')
+          this.loginSuccess = true
+          console.log(this.loginSuccess)
         } else {
           console.log('failed loggin in ')
+          console.log(this.loginSuccess)
+          this.failedText = 'wrong username or password, try again'
+        }
+      },
+      saveUsername() {
+        sessionStorage.setItem('username', this.userName)
+        console.log(this.userName, 'username login')
+        console.log(sessionStorage)
+      }
+    },
+    watch: {
+      loginSuccess(newValue) {
+        if (newValue === true) {
+          this.$router.push('/profile')
         }
       }
     }
@@ -135,5 +155,14 @@
   .createAccountButton a {
     text-decoration: none;
     color: #fafafa;
+  }
+  #failedText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
   }
 </style>

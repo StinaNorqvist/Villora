@@ -183,17 +183,14 @@ router.delete("/api/user-delete", async (req, res) => {
   }
 });
 
+// LOGIN FUNCTION
+
 router.post("/auth", function (request, response) {
   // Capture the input fields
-  console.log(request.body, "test1");
   let userName = request.body.userName;
   let userPassword = request.body.userPassword;
   // Ensure the input fields exist and are not empty
   if (userName && userPassword) {
-    console.log("ifsats");
-    console.log(request.body, "test2");
-    console.log("userName:", userName);
-    console.log("userPassword:", userPassword);
     // Execute SQL query that'll select the account from the database based on the specified username and password
     connection.query(
       "SELECT * FROM user WHERE userName = ? AND userPassword = ?",
@@ -208,13 +205,15 @@ router.post("/auth", function (request, response) {
         }
         // If the account exists
         if (results.length > 0) {
-          console.log("funkar");
+          console.log("funkar att logga in");
           // Authenticate the user
           request.session.loggedin = true;
           request.session.username = userName;
+          console.log(request.session.username, "hej välkommen");
           // Redirect to home page
           response.status(200).json({ success: true });
         } else {
+          console.log("fel lösen");
           response
             .status(401)
             .json({ error: "Incorrect Username and/or Password!" });
@@ -225,17 +224,4 @@ router.post("/auth", function (request, response) {
     response.status(400).json({ error: "Please enter Username and Password!" });
   }
 });
-
-router.get("/profile", function (request, response) {
-  // If the user is loggedin
-  if (request.session.loggedin) {
-    // Output username
-    response.send("Welcome back, " + request.session.username + "!");
-  } else {
-    // Not logged in
-    response.send("Please login to view this page!");
-  }
-  response.end();
-});
-
 module.exports = router;

@@ -116,10 +116,30 @@ router.delete("/api/favorite", async (req, res) => {
 });
 
 router.get("/api/favorite-list", async (req, res) => {
-  let sql = `SELECT userName, houseName
+  let sql = `SELECT userName, houseName, houseImage
   FROM user
   INNER JOIN favorites ON userId = favoriteUID
-   JOIN house ON  houseId = favoriteHID`;
+  INNER JOIN house ON  houseId = favoriteHID;`;
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+router.get("/api/favorite-list/:id", async (req, res) => {
+  let sql = `SELECT userId, userName, houseName, houseImage
+  FROM user
+  INNER JOIN favorites ON userId = favoriteUID
+  INNER JOIN house ON  houseId = favoriteHID
+  WHERE userId = ? `;
   try {
     await connection.query(sql, function (error, results, fields) {
       if (error) {
