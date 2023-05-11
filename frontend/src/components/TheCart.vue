@@ -1,5 +1,11 @@
 <script>
-  export default {}
+  export default {
+    methods: {
+      deleteCart(index) {
+        this.$store.commit('removeFromCart', index)
+      }
+    }
+  }
 </script>
 
 
@@ -12,8 +18,9 @@
       Thank you for choosing Villora house plans! Your selected houses have been added to the cart. Review the details below and proceed to checkout when you are ready to finalize your purchase.
     </p>
 
+
     <ul class="cartList">
-      <li :key="houseItems.id" v-for="houseItems in $store.state.cart">
+      <li :key="houseItems.id" v-for="(houseItems, index) in $store.state.cart">
         <div class="cartItem">
           <div class="imageContainer">
             <img :src="houseItems.houseImage" alt="" class="houseImage" />
@@ -23,15 +30,15 @@
             <p>Price: $ {{ houseItems.housePrice }}</p>
           </div>
           <input
-            type="button"
-            value="Remove from cart"
-            @click="$store.commit('removeFromCart', houseItems)"
-            class="removeButton"
-          />
-        </div>
+        type="button"
+        value="Remove from cart"
+        @click="deleteCart(index)"
+      class="removeButton"
+      />
+      </div>
       </li>
-    </ul>
-  </div>
+        </ul>
+        </div>
 </template>
 
 <style scoped>

@@ -17,8 +17,8 @@ function style() {
     });
 }
 
-function user() {
-  return fetch("http://localhost:3000/api/user")
+function user(username) {
+  return fetch("http://localhost:3000/api/user/" + username)
     .then((response) => response.json())
     .then(function (data) {
       console.log(data, "Users hej");
