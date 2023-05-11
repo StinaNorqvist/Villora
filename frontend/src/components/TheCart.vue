@@ -73,6 +73,8 @@
   .houseImage {
     width: 100%;
     height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
   }
 
   .imageContainer:hover {
@@ -94,6 +96,54 @@
   width: 120px;
   height: 40px;
 
+  }
+
+  @media screen and (max-width: 1200px) {
+    .imageContainer {
+      margin-right: 40px;
+      
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .cartItem {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .imageContainer {
+      margin-right: 20px;
+      
+    }
+  
+    .houseDetails {
+      flex-grow: 1;
+      margin-right: 0;
+      margin-bottom: 10px;
+      text-align: center;
+      
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .cartContainer {
+      margin: 20px;
+    }
+  
+    .cartItem {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .imageContainer {
+      flex: none;
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100px;
+      height: 100px;
+    }
+  
   }
 
 </style>
