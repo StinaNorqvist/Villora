@@ -93,7 +93,8 @@
 
   .favoriteItem {
     width: 48%;
-    height: 48%;
+    min-height: 48%;
+    max-height: 48%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -102,7 +103,8 @@
 
   .houseImage {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
     margin-bottom: 10px;
     border-radius: 5px;
   }
@@ -116,7 +118,7 @@
     color: #fafafa;
     z-index: 300;
     width: 100%;
-    height: 97%;
+    height: 100%;
     opacity: 0;
     border-radius: 5px;
     transition: opacity 0.3s ease-in-out;
