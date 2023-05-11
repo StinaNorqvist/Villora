@@ -68,7 +68,16 @@
         <i v-if="!openNav" class="bi bi-list" />
         <i v-else class="bi bi-x" />
       </div>
+      <div class="navIcons2">
+        <RouterLink to="/cart"
+          ><i class="bi bi-cart2" id="cartIcon"
+        /></RouterLink>
+        <RouterLink to="/profile"
+          ><i class="bi bi-person" id="personIcon"
+        /></RouterLink>
+      </div>
     </div>
+
     <ul class="light navList" :class="{ toggleNav: openNav }">
       <li class="navListItems"><RouterLink to="/">Home</RouterLink></li>
       <li class="navListItems">
@@ -78,10 +87,6 @@
         <RouterLink to="/contact">Contact</RouterLink>
       </li>
       <li class="navListItems"><RouterLink to="/login">Login</RouterLink></li>
-      <li class="navListItems">
-        <RouterLink to="/cart"><i class="bi bi-cart2" /></RouterLink>
-        <RouterLink to="/profile"><i class="bi bi-person" /></RouterLink>
-      </li>
     </ul>
   </nav>
   <main>
@@ -162,6 +167,22 @@
     font-size: 40px;
     display: flex;
   }
+  .navIcons2 {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    z-index: 600;
+    width: 70px;
+  }
+  .navIcons2 i {
+    text-decoration: none;
+    color: #fafafa;
+  }
   /* make it invisble when closed  */
   .navList {
     background: rgba(97, 86, 72, 0.5);
@@ -194,7 +215,6 @@
   .navListItems.toggleNav {
     height: 100px;
   }
-
   footer {
     display: flex;
     flex-direction: row;
@@ -309,6 +329,9 @@
     /* make the hamburger and X icon invisible  */
     .navIcons {
       display: none;
+    }
+    .navIcons2 {
+      margin-right: 10px;
     }
     nav {
       height: 70px;

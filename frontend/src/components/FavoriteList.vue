@@ -28,10 +28,25 @@
 
 <script>
   export default {
+    data() {
+      return {
+        favoriteText: ''
+      }
+    },
     methods: {
       deleteFavorite(index) {
         this.$store.commit('removeFromFavorite', index)
+      },
+      updateText() {
+        if (this.$store.state.favorite.length === 0) {
+          this.favoriteText = 'You havent favorited any houses yet'
+        } else {
+          this.favoriteText = ''
+        }
       }
+    },
+    mounted() {
+      this.updateText()
     }
   }
 </script>
@@ -39,19 +54,24 @@
 <template>
   <div class="favoritesContainer">
     <h1>Favorites</h1>
-    <p>Your Saved Favorite Villora House Plans</p>
     <div class="favoriteGrid">
-      <div v-for="(houseItems, index) in $store.state.favorite" :key="houseItems.id" class="favoriteItem">
+      {{ this.favoriteText }}
+      <div
+        v-for="(houseItems, index) in $store.state.favorite"
+        :key="houseItems.id"
+        class="favoriteItem"
+      >
         <img :src="houseItems.houseImage" alt="hejehj" class="houseImage" />
         <div class="houseDetails">
-        
-          
-          <input
-            type="button"
-            value="Remove"
-            @click="deleteFavorite(index)"
-            class="removeFavButton"
-          />
+          <h2>
+            {{ houseItems.houseName }}
+          </h2>
+          <p>Price: {{ houseItems.housePrice }}$</p>
+        </div>
+        <div class="removeFavButton">
+          <button class="heartButton" @click="deleteFavorite(index)">
+            <i class="bi bi-heart-fill" />
+          </button>
         </div>
       </div>
     </div>
@@ -64,25 +84,21 @@
   }
 
   .favoriteGrid {
-
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    gap: 2px;
-    
-  
+    gap: 10px;
   }
 
   .favoriteItem {
     width: 48%;
+    height: 48%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: end;
-   
   }
-
 
   .houseImage {
     width: 100%;
@@ -92,16 +108,34 @@
   }
 
   .houseDetails {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+    z-index: 300;
     width: 100%;
-    
+    height: 97%;
+    opacity: 0;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+    backdrop-filter: blur(15px);
   }
 
-  .removeFavButton{
+  .houseDetails:hover {
+    opacity: 100;
+  }
+
+  .removeFavButton {
+    align-self: flex-end;
+    margin: 10px;
     position: absolute;
     z-index: 400;
-    margin-top: -50px;
-   margin-left: 20px;
-   
-    
+  }
+  .heartButton {
+    background: none;
+    border: none;
+    font-size: 35px;
   }
 </style>
