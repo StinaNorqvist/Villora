@@ -80,6 +80,7 @@
       <li class="navListItems"><RouterLink to="/login">Login</RouterLink></li>
       <li class="navListItems">
         <RouterLink to="/cart"><i class="bi bi-cart2" /></RouterLink>
+        <RouterLink to="/profile"><i class="bi bi-person" /></RouterLink>
       </li>
     </ul>
   </nav>
