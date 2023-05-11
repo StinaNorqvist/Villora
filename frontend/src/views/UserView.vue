@@ -44,42 +44,63 @@
   <div v-if="!settings" id="userFavContainer" class="userContainer glassEffect">
     <div><FavoriteList /></div>
   </div>
-  <div v-else id="userSetContainer" class="userContainer glassEffect">
-    <div v-for="user in users" :key="user">
-      <input
-        type="text"
-        name=""
-        id=""
-        :placeholder="user.userName"
-        :disabled="!editing"
+  <div
+    v-else
+    id="userSetContainer"
+    class="userContainer glassEffect userContainerSettings"
+  >
+    <div v-for="user in users" :key="user" class="userInputContainer">
+      <p>Your profile settings:</p>
+      <div id="userInput">
+        <input
+          type="text"
+          name=""
+          id=""
+          :placeholder="user.userName"
+          :disabled="!editing"
+        />
+        <br />
+        <input
+          type="mail"
+          name=""
+          id=""
+          :placeholder="user.userMail"
+          :disabled="!editing"
+        />
+        <br />
+        <input
+          type="tel"
+          name=""
+          id=""
+          :placeholder="user.userPhone"
+          :disabled="!editing"
+        />
+        <br />
+        <input
+          type="password"
+          name=""
+          id=""
+          placeholder="*********"
+          :disabled="!editing"
+        />
+        <br />
+        <div class="saveEditButtonContainer">
+          <button v-if="!editing" @click="toggleEdit" class="saveEditButton">
+            edit
+          </button>
+          <button v-else @click="toggleEdit" class="saveEditButton">
+            save
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="userLogoContainer">
+      <img
+        src="../../assets/logos/iconBigDark.png"
+        alt="villora logo"
+        id="villoraUserLogo"
       />
-      <br />
-      <input
-        type="mail"
-        name=""
-        id=""
-        :placeholder="user.userMail"
-        :disabled="!editing"
-      />
-      <br />
-      <input
-        type="tel"
-        name=""
-        id=""
-        :placeholder="user.userPhone"
-        :disabled="!editing"
-      />
-      <br />
-      <input
-        type="password"
-        name=""
-        id=""
-        placeholder="*********"
-        :disabled="!editing"
-      />
-      <br />
-      <button v-if="!editing" @click="toggleEdit">edit</button>
-      <button v-else @click="toggleEdit">save</button>
+      <p id="userLogoText">Villora</p>
     </div>
   </div>
 
@@ -100,6 +121,48 @@
     margin-bottom: 10px;
     width: 95%;
     min-height: 500px;
-    background-color: green;
+  }
+  .userContainerSettings {
+    display: flex;
+  }
+  .userInputContainer {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #userInput {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+  }
+  .saveEditButtonContainer {
+    display: flex;
+    justify-content: end;
+  }
+  .userLogoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 50%;
+  }
+  #villoraUserLogo {
+    width: 50%;
+    height: 50%;
+  }
+  #userLogoText {
+    font-family: 'Lato', sans-serif;
+    font-weight: 150;
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 0.3em;
+    margin: 0;
+    padding: 0;
   }
 </style>
