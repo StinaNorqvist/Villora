@@ -69,6 +69,7 @@
         <i v-else class="bi bi-x" />
       </div>
       <div class="navIcons2">
+        <p>{{ $store.state.cart.length }}</p>
         <RouterLink to="/cart"
           ><i class="bi bi-cart2" id="cartIcon"
         /></RouterLink>
