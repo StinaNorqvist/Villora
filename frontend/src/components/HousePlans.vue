@@ -201,7 +201,9 @@
           value="Add to cart"
           @click="$store.commit('addToCart', houseItem)"
         />
-        <i class="bi bi-heart" />
+        <button @click="$store.commit('addToFavorite', houseItem)">
+          <i class="bi bi-heart" />
+        </button>
       </div>
     </div>
   </div>

@@ -1,7 +1,11 @@
 <script>
   import fetch from '../../../backend/fetch'
+  import FavoriteList from '../components/FavoriteList.vue'
 
   export default {
+    components: {
+      FavoriteList
+    },
     data() {
       return {
         users: null,
@@ -38,7 +42,7 @@
     <button @click="toggleFavorites">settings</button>
   </div>
   <div v-if="!settings" id="userFavContainer" class="userContainer glassEffect">
-    <div>favoriter</div>
+    <div><FavoriteList /></div>
   </div>
   <div v-else id="userSetContainer" class="userContainer glassEffect">
     <div v-for="user in users" :key="user">
@@ -78,6 +82,7 @@
       <button v-else @click="toggleEdit">save</button>
     </div>
   </div>
+
   <!-- göra användarnamn unika så man kan göra en PUT och delete WHERE username = sessionstorage
 --></template>
 <style>
