@@ -8,6 +8,7 @@
     <div class="loginAccountContainer glassEffect">
       <form @submit.prevent="createAccount" id="createForm" action="POST">
         <div class="inputContainer">
+          <div id="failedText" class="light">{{ successText }}</div>
           <input
             v-model="userName"
             type="text"
@@ -71,7 +72,9 @@
         userName: '',
         userMail: '',
         userPhone: '',
-        userPassword: ''
+        userPassword: '',
+        successText: '',
+        createSuccess: false
       }
     },
 
@@ -96,7 +99,23 @@
           })
         })
         const data = await response.json()
-        return data
+
+        if (data.success) {
+          console.log('nytt konto')
+          this.successText = 'Your account is now created!'
+          this.createSuccess = true
+        } else {
+          console.log('inget nytt konto')
+        }
+      }
+    },
+    watch: {
+      createSuccess(newValue) {
+        if (newValue === true) {
+          setTimeout(() => {
+            this.$router.push('/login')
+          }, 1000)
+        }
       }
     }
   }

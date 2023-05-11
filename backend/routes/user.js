@@ -19,7 +19,7 @@ router.get("/api/user", async (req, res) => {
 });
 
 router.get("/api/user/:id", async (req, res) => {
-  let sql = "SELECT * FROM user WHERE userId = ?";
+  let sql = "SELECT * FROM user WHERE userName = ?";
   try {
     await connection.query(
       sql,

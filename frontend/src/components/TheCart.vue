@@ -1,5 +1,11 @@
 <script>
-  export default {}
+  export default {
+    methods: {
+      deleteCart(index) {
+        this.$store.commit('removeFromCart', index)
+      }
+    }
+  }
 </script>
 
 <template>
@@ -9,14 +15,14 @@
   {{ $store.state.cart.length }}
 
   <ul>
-    <li :key="houseItems.id" v-for="houseItems in $store.state.cart">
+    <li :key="houseItems.id" v-for="(houseItems, index) in $store.state.cart">
       <img alt="" :src="houseItems.houseImage" />
       {{ houseItems.houseName }}, $ {{ houseItems.housePrice }}, Product id:
       {{ houseItems.id }}
       <input
         type="button"
         value="Remove from cart"
-        @click="$store.commit('removeFromCart', houseItems)"
+        @click="deleteCart(index)"
       />
     </li>
   </ul>
