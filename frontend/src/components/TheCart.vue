@@ -31,7 +31,7 @@
           </div>
           <input
         type="button"
-        value="Remove from cart"
+        value="Remove"
         @click="deleteCart(index)"
       class="removeButton"
       />
