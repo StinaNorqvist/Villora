@@ -1,10 +1,12 @@
 <script>
   import fetch from '../../../backend/fetch'
   import FavoriteList from '../components/FavoriteList.vue'
+  import EditUser from '../components/EditUser.vue'
 
   export default {
     components: {
-      FavoriteList
+      FavoriteList,
+      EditUser
     },
     data() {
       return {
@@ -85,61 +87,7 @@
     <div v-for="user in users" :key="user" class="userInputContainer">
       <p>Your profile settings:</p>
       <div id="userInput">
-        <form @submit.prevent="editAccount">
-          <input
-            v-model="userName"
-            type="text"
-            name="userName"
-            id="userName"
-            :placeholder="user.userName"
-            :disabled="!editing"
-            required
-          />
-          <br />
-          <input
-            v-model="userMail"
-            type="mail"
-            name="userMail"
-            id="userMail"
-            :placeholder="user.userMail"
-            :disabled="!editing"
-            required
-          />
-          <br />
-          <input
-            v-model="userPhone"
-            type="tel"
-            name="userPhone"
-            id="userPhone"
-            :placeholder="user.userPhone"
-            :disabled="!editing"
-            required
-          />
-          <br />
-          <input
-            v-model="userPassword"
-            type="password"
-            name="userPassword"
-            id="userPassword"
-            placeholder="*********"
-            :disabled="!editing"
-            required
-          />
-          <br />
-          <div class="saveEditButtonContainer">
-            <button v-if="!editing" @click="toggleEdit" class="saveEditButton">
-              edit
-            </button>
-            <button
-              type="submit"
-              v-else
-              @click="toggleEdit, editAccount"
-              class="saveEditButton"
-            >
-              save
-            </button>
-          </div>
-        </form>
+        <EditUser />
       </div>
     </div>
     <div class="userLogoContainer">
