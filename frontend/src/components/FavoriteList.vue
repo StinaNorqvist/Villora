@@ -53,7 +53,7 @@
 
 <template>
   <div class="favoritesContainer">
-    <h1>Favorites</h1>
+    <h1 id="favoriteH1">Favorites</h1>
     <div class="favoriteGrid">
       {{ this.favoriteText }}
       <div
@@ -79,8 +79,12 @@
 </template>
 
 <style scoped>
+  #favoriteH1 {
+    margin-top: 0;
+  }
   .favoritesContainer {
     margin: 40px;
+    margin-top: 0;
   }
 
   .favoriteGrid {
