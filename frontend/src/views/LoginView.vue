@@ -39,57 +39,57 @@
     </div>
   </div>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        userName: '',
-        userPassword: '',
-        loginSuccess: false,
-        failedText: ''
-      }
-    },
-    methods: {
-      async loginAccount() {
-        console.log('loggar login function')
-        const response = await fetch('http://localhost:3000/auth', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            userName: this.userName,
-            userPassword: this.userPassword
-          })
-        })
-        const data = await response.json()
 
-        if (data.success) {
-          console.log('success loggin in')
-          console.log(this.userName, 'usernameeee')
-          this.loginSuccess = true
-          console.log(this.loginSuccess)
-          sessionStorage.setItem('username', this.userName)
-        } else {
-          console.log('failed loggin in ')
-          console.log(this.loginSuccess)
-          this.failedText = 'wrong username or password, try again'
-        }
+<script>
+
+
+export default {
+  data() {
+    return {
+      userName: '',
+      userPassword: '',
+      loginSuccess: false,
+      failedText: ''
+    }
+  },
+  methods: {
+    async loginAccount() {
+      console.log('loggar login function')
+      const response = await fetch('http://localhost:3000/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userName: this.userName,
+          userPassword: this.userPassword
+        })
+      })
+      const data = await response.json()
+
+      if (data.success) {
+        console.log('success loggin in')
+        console.log(this.userName, 'usernameeee')
+        this.loginSuccess = true
+        console.log(this.loginSuccess)
+        sessionStorage.setItem('username', this.userName)
+        this.$store.commit("setLoggedIn")
+        console.log(this.$store.state.isLoggedIn, "testar looged in")
+      } else {
+        console.log('failed loggin in ')
+        console.log(this.loginSuccess)
+        this.failedText = 'wrong username or password, try again'
       }
-      // saveUsername() {
-      //   sessionStorage.setItem('username', this.userName)
-      //   console.log(this.userName, 'username login')
-      //   console.log(sessionStorage)
-      // }
-    },
-    watch: {
-      loginSuccess(newValue) {
-        if (newValue === true) {
-          this.$router.push('/profile')
-        }
+    }
+  },
+  watch: {
+    loginSuccess(newValue) {
+      if (newValue === true) {
+        this.$router.push('/profile')
       }
     }
   }
+}
 </script>
 <style>
   .backgroundImage {
@@ -166,4 +166,6 @@
     font-size: 20px;
     margin-top: 15px;
   }
+
+  
 </style>
