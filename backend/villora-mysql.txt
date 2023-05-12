@@ -77,17 +77,17 @@ SELECT * FROM favorites;
 -- Josefine
 INSERT INTO user(userName, userPhone, userMail, userPassword)
 VALUES
-('Josefine lolin', 0734567891, 'josefine123@gmail.com', 'test'),
+('Josefine lolin', "0734567891", 'josefine123@gmail.com', 'test'),
 -- Stina
-('Stina Nor', 0739876543, 'stina123@gmail.com', 'test'),
+('Stina Nor', "0739876543", 'stina123@gmail.com', 'test'),
 -- Malin
-('Malin Alvist', 0731245678, 'malin123@mail.com', 'test'),
+('Malin Alvist', "0731245678", 'malin123@mail.com', 'test'),
 -- Tatiana
-('Tatiana lop', 0761234567, 'tatiana123@gmail.com', 'test'),
+('Tatiana lop', "0761234567", 'tatiana123@gmail.com', 'test'),
 -- Nassim
-('Nassim benwazi', 0712121232, 'nasdos123@gmail.com', 'test'),
+('Nassim benwazi', "0712121232", 'nasdos123@gmail.com', 'test'),
 -- Abdul
-('ciscobugger', 112, 'xizko10@gmail.com', 'test');
+('ciscobugger', "112", 'xizko10@gmail.com', 'test');
 
 -- Josefine
 INSERT INTO style(styleName, styleDescription)

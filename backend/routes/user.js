@@ -67,15 +67,15 @@ router.post("/api/user", async (req, res) => {
   }
 });
 
-router.put("/api/user", async (req, res) => {
+router.put("/api/user/", async (req, res) => {
+  console.log('SUCCESS')
   let sql =
-    "UPDATE user SET userName = ?, userPhone = ?, userMail = ?, userPassword = ? WHERE userId = ?";
+    "UPDATE user SET userPhone = ?, userMail = ?, userPassword = ? WHERE userName = ?";
   let params = [
-    req.body.userName,
     req.body.userPhone,
     req.body.userMail,
-    req.body.userId,
     req.body.userPassword,
+    req.body.userName
   ];
 
   try {

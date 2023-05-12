@@ -1,22 +1,28 @@
 <script>
   import fetch from '../../../backend/fetch'
   import FavoriteList from '../components/FavoriteList.vue'
+  import EditUser from '../components/EditUser.vue'
 
   export default {
     components: {
-      FavoriteList
+      FavoriteList,
+      EditUser
     },
     data() {
       return {
         users: null,
         userName: null,
+        userMail: null,
+        userPhone: null,
+        userPassword: null,
         settings: false,
-        editing: false
+        editing: false,
+        userNameSession: null
       }
     },
     async created() {
-      this.userName = sessionStorage.getItem('username')
-      this.users = await fetch.user(this.userName)
+      this.userNameSession = sessionStorage.getItem('username')
+      this.users = await fetch.user(this.userNameSession)
       console.log(this.users, 'testar usresss')
       console.log(this.userName, 'profil username')
       console.log(sessionStorage, 'getlocal')
@@ -31,6 +37,35 @@
       },
       toggleEdit() {
         this.editing = !this.editing
+      },
+
+      async editAccount() {
+        console.log('HEJEHEJEHEHJEHEHEHEHEH')
+        const response = await fetch('http://localhost:3000/api/user', {
+          method: 'PUT',
+          mode: 'cors',
+          cache: 'no-cache',
+          credentials: 'same-origin',
+
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          redirect: 'follow',
+          referrerPolicy: 'no-referrer',
+          body: JSON.stringify({
+            userName: this.userName,
+            userMail: this.userMail,
+            userPhone: this.userPhone,
+            userPassword: this.userPassword
+          })
+        })
+        const data = await response.json()
+
+        if (data.success) {
+          console.log('Edit konto: success')
+        } else {
+          console.log('Edit konto: no')
+        }
       }
     }
   }
@@ -52,46 +87,7 @@
     <div v-for="user in users" :key="user" class="userInputContainer">
       <p>Your profile settings:</p>
       <div id="userInput">
-        <input
-          type="text"
-          name=""
-          id=""
-          :placeholder="user.userName"
-          :disabled="!editing"
-        />
-        <br />
-        <input
-          type="mail"
-          name=""
-          id=""
-          :placeholder="user.userMail"
-          :disabled="!editing"
-        />
-        <br />
-        <input
-          type="tel"
-          name=""
-          id=""
-          :placeholder="user.userPhone"
-          :disabled="!editing"
-        />
-        <br />
-        <input
-          type="password"
-          name=""
-          id=""
-          placeholder="*********"
-          :disabled="!editing"
-        />
-        <br />
-        <div class="saveEditButtonContainer">
-          <button v-if="!editing" @click="toggleEdit" class="saveEditButton">
-            edit
-          </button>
-          <button v-else @click="toggleEdit" class="saveEditButton">
-            save
-          </button>
-        </div>
+        <EditUser />
       </div>
     </div>
     <div class="userLogoContainer">
