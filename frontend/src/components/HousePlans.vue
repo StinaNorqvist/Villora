@@ -8,7 +8,8 @@
         houseItems: null,
         sortOptions: [],
         filterOptions: [],
-        priceSortOrder: 'lowToHigh'
+        priceSortOrder: 'lowToHigh',
+        heart: false
       }
     },
 
@@ -48,6 +49,9 @@
           )
           this.priceSortOrder = 'lowToHigh'
         }
+      },
+      toggleHeart() {
+        this.heart = !this.heart
       }
     },
 
@@ -201,8 +205,15 @@
           value="Add to cart"
           @click="$store.commit('addToCart', houseItem)"
         />
-        <button @click="$store.commit('addToFavorite', houseItem)">
-          <i class="bi bi-heart" />
+        <button
+          @click="$store.commit('addToFavorite', houseItem), toggleHeart()"
+          :class="['bi', !heart ? 'bi-heart' : 'bi-heart-fill']"
+        >
+          <!-- <i @click="toggleHeart" v-if="!heart" class="bi bi-heart" />
+          <i @click="toggleHeart" v-else class="bi bi-heart-fill" /> -->
+
+          <!-- <i v-if="!openNav" class="bi bi-list" />
+          <i v-else class="bi bi-x" /> -->
         </button>
       </div>
     </div>
