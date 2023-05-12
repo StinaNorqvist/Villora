@@ -1,5 +1,6 @@
 <script>
   import fetch from '../../backend/fetch.js'
+  import { mapState } from 'vuex'
 
   export default {
     components: {},
@@ -30,6 +31,8 @@
       }
     },
     computed: {
+    ...mapState(['isLoggedIn']),
+  
       homePage() {
         return this.$route.path === '/'
       }
@@ -74,7 +77,7 @@
           ><i class="bi bi-cart2" id="cartIcon"
         /></RouterLink>
         <RouterLink to="/profile"
-          ><i class="bi bi-person" id="personIcon"
+          ><i v-if="isLoggedIn" class="bi bi-person" id="personIcon"
         /></RouterLink>
       </div>
     </div>
