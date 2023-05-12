@@ -145,40 +145,40 @@ VALUES ('Vinyl siding'),
 -- Gemensamt
 INSERT INTO house(houseName, housePrice, houseFloors, houseSquareFeet, houseBedrooms, houseBathrooms, houseImage, houseStyle)
 VALUES
-('Modern Mansion', 4580, 3, '8000 sq ft', 6, 8, 'https://b.stablecog.com/edc62ef4-169a-4084-b768-3306c1b4b922.jpeg', 4),
+('Modern Mansion', 4580, 2, '8000 sq ft', 3, 2, 'https://b.stablecog.com/edc62ef4-169a-4084-b768-3306c1b4b922.jpeg', 4),
 ('Luxury Penthouse', 3750, 1, '5000 sq ft', 3, 4, 'https://b.stablecog.com/86758f2e-4a6d-4e7a-b3e1-e38aa3cc893c.jpeg', 3),
-('Cozy Cottage', 3400, 1, '1500 sq ft', 2, 2, 'https://b.stablecog.com/2d9ec3cc-eed0-493c-bb8b-2cc1d42b4107.jpeg', 5),
-('Rustic Retreat', 4960, 2, '6000 sq ft', 4, 5, 'https://b.stablecog.com/90902a71-6be2-44f2-90a4-a15d54312ee2.jpeg', 8),
-('Beachfront Villa', 6800, 2, '12000 sq ft', 7, 9, 'https://b.stablecog.com/818a72ba-64b0-4f0f-b8a8-9894e6495225.jpeg', 18),
-('Mountain Chalet', 6300, 3, '10000 sq ft', 5, 6, 'https://b.stablecog.com/fa9824fd-fe73-482e-806b-dbd7cf2657fb.jpeg', 14),
-('Colonial Estate', 5300, 2, '9000 sq ft', 4, 6, 'https://b.stablecog.com/ef84393e-19f0-4e4c-ad59-7af951a73eb0.jpeg', 11),
-('Traditional Ranch', 2600, 1, '2000 sq ft', 3, 2, 'https://b.stablecog.com/3af05e46-784d-414d-bc42-17e2f34475b2.jpeg', 1),
-('Contemporary Loft', 4100, 2, '4000 sq ft', 4, 3, 'https://b.stablecog.com/b6a7ebee-40f8-4aa0-8d1b-d70480ba8695.jpeg', 2),
-('Tudor Manor', 5900, 3, '7000 sq ft', 6, 7, 'https://b.stablecog.com/bedefe48-20d7-4e48-a9e9-a6823f329744.jpeg', 3),
-('Mediterranean Villa', 7200, 2, '10000 sq ft', 5, 6, 'https://b.stablecog.com/1847d59a-476f-4873-8382-4d8dab738841.jpeg', 4),
-('Craftsman Bungalow', 3200, 1, '1800 sq ft', 3, 2, 'https://b.stablecog.com/ded4ac29-8276-4cdf-a68d-34b4730a191d.jpeg', 5),
-('Mid-Century Modern', 3900, 2, '3500 sq ft', 4, 4, 'https://b.stablecog.com/6bd2e2cc-6116-4f0a-a090-3084037a36c4.jpeg', 6),
-('Beach House', 4500, 2, '5000 sq ft', 5, 4, 'https://b.stablecog.com/cb5def39-0aa8-4830-b847-3c0df5f16274.jpeg', 7),
-('Victorian Mansion', 8500, 3, '12000 sq ft', 8, 10, 'https://b.stablecog.com/df9c14ce-8e4b-47fd-b039-fe1324cf2302.jpeg', 8),
+('Cozy Cottage', 3400, 1, '1500 sq ft', 3, 2, 'https://b.stablecog.com/2d9ec3cc-eed0-493c-bb8b-2cc1d42b4107.jpeg', 5),
+('Rustic Retreat', 4960, 2, '6000 sq ft', 2, 1, 'https://b.stablecog.com/90902a71-6be2-44f2-90a4-a15d54312ee2.jpeg', 8),
+('Beachfront Villa', 6800, 1, '12000 sq ft', 4, 2, 'https://b.stablecog.com/818a72ba-64b0-4f0f-b8a8-9894e6495225.jpeg', 18),
+('Mountain Chalet', 6300, 1, '10000 sq ft', 5, 3, 'https://b.stablecog.com/fa9824fd-fe73-482e-806b-dbd7cf2657fb.jpeg', 14),
+('Colonial Estate', 5300, 3, '9000 sq ft', 8, 6, 'https://b.stablecog.com/ef84393e-19f0-4e4c-ad59-7af951a73eb0.jpeg', 11),
+('Traditional Ranch', 2600, 2, '2000 sq ft', 4, 3, 'https://b.stablecog.com/3af05e46-784d-414d-bc42-17e2f34475b2.jpeg', 1),
+('Contemporary Loft', 4100, 1, '4000 sq ft', 4, 3, 'https://b.stablecog.com/b6a7ebee-40f8-4aa0-8d1b-d70480ba8695.jpeg', 2),
+('Tudor Manor', 5900, 3, '7000 sq ft', 6, 4, 'https://b.stablecog.com/bedefe48-20d7-4e48-a9e9-a6823f329744.jpeg', 3),
+('Mediterranean Villa', 7200, 2, '10000 sq ft', 5, 4, 'https://b.stablecog.com/1847d59a-476f-4873-8382-4d8dab738841.jpeg', 4),
+('Craftsman Bungalow', 3200, 2, '1800 sq ft', 3, 2, 'https://b.stablecog.com/ded4ac29-8276-4cdf-a68d-34b4730a191d.jpeg', 5),
+('Mid-Century Modern', 3900, 1, '3500 sq ft', 4, 4, 'https://b.stablecog.com/6bd2e2cc-6116-4f0a-a090-3084037a36c4.jpeg', 6),
+('Beach House', 4500, 1, '5000 sq ft', 3, 2, 'https://b.stablecog.com/cb5def39-0aa8-4830-b847-3c0df5f16274.jpeg', 7),
+('Victorian Mansion', 8500, 3, '12000 sq ft', 8, 4, 'https://b.stablecog.com/df9c14ce-8e4b-47fd-b039-fe1324cf2302.jpeg', 8),
 ('Cape Cod Cottage', 2800, 1, '1600 sq ft', 3, 2, 'https://b.stablecog.com/e70447f6-c183-4f32-b8be-36bc8db60c73.jpeg', 9),
-('Georgian Colonial', 5100, 2, '6000 sq ft', 5, 5, 'https://b.stablecog.com/4539f397-8613-4951-a353-89e2c8fd5e6e.jpeg', 10),
-('European Chateau', 9600, 3, '15000 sq ft', 10, 12, 'https://b.stablecog.com/e7d24eb5-163b-40d3-8c49-47d2e7ed3817.jpeg', 11),
-('Farmhouse', 4200, 2, '3500 sq ft', 4, 4, 'https://b.stablecog.com/2af3a54b-f3db-4322-b64e-22305f2a3946.jpeg', 13),
+('Georgian Colonial', 5100, 3, '6000 sq ft', 5, 5, 'https://b.stablecog.com/4539f397-8613-4951-a353-89e2c8fd5e6e.jpeg', 10),
+('European Chateau', 9600, 2, '15000 sq ft', 5, 4, 'https://b.stablecog.com/e7d24eb5-163b-40d3-8c49-47d2e7ed3817.jpeg', 11),
+('Farmhouse', 4200, 1, '3500 sq ft', 4, 4, 'https://b.stablecog.com/2af3a54b-f3db-4322-b64e-22305f2a3946.jpeg', 13),
 ('Ranch Style', 2900, 1, '2000 sq ft', 3, 2, 'https://b.stablecog.com/6813adbc-6eb5-4a21-977b-766093cc251f.jpeg', 14),
-('Modern Farmhouse', 2900, 1, '2000 sq ft', 3, 2, 'https://b.stablecog.com/763937c3-7d0e-459d-8264-d8f1c9ec5222.jpeg', 14),
-('Split-Level Home', 3400, 2, '2500 sq ft', 4, 3, 'https://b.stablecog.com/b2ed6d59-33ed-4416-84e5-188d34438b3f.jpeg', 16),
+('Modern Farmhouse', 2900, 3, '2000 sq ft', 4, 2, 'https://b.stablecog.com/763937c3-7d0e-459d-8264-d8f1c9ec5222.jpeg', 14),
+('Split-Level Home', 3400, 3, '2500 sq ft', 6, 3, 'https://b.stablecog.com/b2ed6d59-33ed-4416-84e5-188d34438b3f.jpeg', 16),
 ('Japanese House', 4800, 2, '4000 sq ft', 3, 3, 'https://b.stablecog.com/788f383a-9dbb-46ea-9790-33fa94531058.jpeg', 17),
-('Mansion on the Hill', 12000, 4, '25000 sq ft', 12, 15, 'https://b.stablecog.com/28b9ed14-5746-424a-a429-d05338e6b9a2.jpeg', 18),
-('Greek Revival Mansion', 9500, 3, '11000 sq ft', 8, 10, 'https://b.stablecog.com/0f5add78-74ae-4c32-9838-e61020ffb38a.jpeg', 1),
-('Artisan Cottage', 3800, 2, '2500 sq ft', 4, 3, 'https://b.stablecog.com/4bada2ae-0a25-48fb-8b2a-f7e595a6c2ef.jpeg', 5),
+('Mansion on the Hill', 12000, 4, '25000 sq ft', 12, 5, 'https://b.stablecog.com/28b9ed14-5746-424a-a429-d05338e6b9a2.jpeg', 18),
+('Greek Revival Mansion', 9500, 3, '11000 sq ft', 5, 3, 'https://b.stablecog.com/0f5add78-74ae-4c32-9838-e61020ffb38a.jpeg', 1),
+('Artisan Cottage', 3800, 3, '2500 sq ft', 5, 3, 'https://b.stablecog.com/4bada2ae-0a25-48fb-8b2a-f7e595a6c2ef.jpeg', 5),
 ('Spanish Colonial', 6700, 2, '6000 sq ft', 5, 6, 'https://b.stablecog.com/d7b5074c-0065-4b56-9723-be5f1d8b2405.jpeg', 4),
-('Transitional Townhouse', 4800, 3, '4000 sq ft', 4, 5, 'https://b.stablecog.com/45c01835-e629-4e58-ae67-98cd7b96ad5c.jpeg', 2),
-('Industrial Loft', 5100, 1, '4500 sq ft', 2, 2, 'https://b.stablecog.com/6d9ae7b7-e63d-4f40-89ef-eaab9c391b98.jpeg', 6),
-('Cape Dutch House', 5900, 2, '5000 sq ft', 3, 3, 'https://b.stablecog.com/02fe5072-93b7-4e6d-9825-28b2fe29b01b.jpeg', 9),
-('Prairie Style', 4200, 1, '2200 sq ft', 3, 2, 'https://b.stablecog.com/3fdc7b8c-dd78-4fe0-80fc-bf71f511e98c.jpeg', 7),
+('Transitional Townhouse', 4800, 2, '4000 sq ft', 4, 5, 'https://b.stablecog.com/45c01835-e629-4e58-ae67-98cd7b96ad5c.jpeg', 2),
+('Industrial Loft', 5100, 2, '4500 sq ft', 4, 2, 'https://b.stablecog.com/6d9ae7b7-e63d-4f40-89ef-eaab9c391b98.jpeg', 6),
+('Cape Dutch House', 5900, 3, '5000 sq ft', 3, 3, 'https://b.stablecog.com/02fe5072-93b7-4e6d-9825-28b2fe29b01b.jpeg', 9),
+('Prairie Style', 4200, 2, '2200 sq ft', 3, 2, 'https://b.stablecog.com/3fdc7b8c-dd78-4fe0-80fc-bf71f511e98c.jpeg', 7),
 ('Tropical Bungalow', 3200, 1, '1700 sq ft', 2, 2, 'https://b.stablecog.com/39afbd1f-58cd-4de6-a318-843cbfed4e9d.jpeg', 18),
-('French Country Estate', 8400, 2, '7500 sq ft', 6, 7, 'https://b.stablecog.com/364c3e1e-7f0a-4366-8442-a7df429ae422.jpeg', 11),
-('A-Frame Cabin', 2900, 1, '1300 sq ft', 2, 1, 'https://b.stablecog.com/5d88ddfb-9b36-4a83-bc32-6989c4ba12d6.jpeg', 12);
+('French Country Estate', 8400,3, '7500 sq ft', 6, 7, 'https://b.stablecog.com/364c3e1e-7f0a-4366-8442-a7df429ae422.jpeg', 11),
+('A-Frame Cabin', 2900, 2, '1300 sq ft', 2, 2, 'https://b.stablecog.com/5d88ddfb-9b36-4a83-bc32-6989c4ba12d6.jpeg', 12);
 
 
 -- Gemensamt
@@ -222,13 +222,6 @@ SELECT COUNT(*) AS countFavorites FROM favorites
 INNER JOIN user u on favorites.favoriteUID = u.userId
 INNER JOIN house h on favorites.favoriteHID = h.houseId
 WHERE houseId = 3;
-
-
-
-
-
-
-
 
 
 
