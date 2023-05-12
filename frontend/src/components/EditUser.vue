@@ -1,8 +1,8 @@
 <template>
-  <h1>bananananan</h1>
   <form @submit.prevent="editAccount">
     <input
       v-model="userName"
+      :placeholder="fetchUserName"
       type="text"
       name="userName"
       id="userName"
@@ -11,6 +11,7 @@
     <br />
     <input
       v-model="userMail"
+      :placeholder="fetchMail"
       type="mail"
       name="userMail"
       id="userMail"
@@ -42,15 +43,25 @@
 </template>
 
 <script>
+  import fetch from '../../../backend/fetch'
   export default {
     data() {
       return {
         userName: null,
         userMail: null,
         userPhone: null,
-        userPassword: null
+        userPassword: null,
+        fetchUserName: null,
+        users: null,
+        fetchMail: null
       }
     },
+    // async created() {
+    //   this.fetchUserName = sessionStorage.getItem('username')
+    //   this.users = await fetch.user(this.fetchUserName)
+    //   this.fetchMail = this.users
+    //   console.log(this.fetchMail, 'fetchmail')
+    // },
     methods: {
       async editAccount() {
         console.log('HEJEHEJEHEHJEHEHEHEHEH')
@@ -83,3 +94,11 @@
     }
   }
 </script>
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+  }
+</style>

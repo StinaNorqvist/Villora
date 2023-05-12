@@ -332,7 +332,7 @@
       display: none;
     }
     .navIcons2 {
-      margin-right: 10px;
+      margin-right: 5%;
     }
     nav {
       height: 70px;
@@ -341,6 +341,7 @@
       background-color: #201e1d;
     }
     .navList {
+      margin-left: -5%;
       width: 100%;
       display: flex;
       justify-content: space-evenly;

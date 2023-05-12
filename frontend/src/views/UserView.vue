@@ -10,11 +10,6 @@
     },
     data() {
       return {
-        users: null,
-        userName: null,
-        userMail: null,
-        userPhone: null,
-        userPassword: null,
         settings: false,
         editing: false,
         userNameSession: null
@@ -71,7 +66,7 @@
   }
 </script>
 <template>
-  <h1>Welcome {{ this.userName }}</h1>
+  <h1>Welcome {{ this.userNameSession }}</h1>
   <div id="profileButtonsContainer">
     <button @click="toggleSettings">favorites</button>
     <button @click="toggleFavorites">settings</button>
@@ -85,8 +80,8 @@
     class="userContainer glassEffect userContainerSettings"
   >
     <div v-for="user in users" :key="user" class="userInputContainer">
-      <p>Your profile settings:</p>
       <div id="userInput">
+        <p>Your profile settings:</p>
         <EditUser />
       </div>
     </div>
@@ -130,9 +125,6 @@
     justify-content: center;
   }
   #userInput {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     width: 60%;
   }
   .saveEditButtonContainer {
