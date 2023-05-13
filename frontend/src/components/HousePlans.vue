@@ -8,8 +8,7 @@
         houseItems: null,
         sortOptions: [],
         filterOptions: [],
-        priceSortOrder: 'lowToHigh',
-        heart: false
+        priceSortOrder: 'lowToHigh'
       }
     },
 
@@ -50,27 +49,6 @@
           )
           this.priceSortOrder = 'lowToHigh'
         }
-      },
-      updateHeartStatus() {
-        if (!this.houseItems || this.$store.state.favorite.length === 0) return
-
-        this.houseItems.forEach((houseItem) => {
-          houseItem.heart = this.myFavorite(houseItem)
-        })
-      },
-      toggleFave(houseItem) {
-        if (this.myFavorite(houseItem)) {
-          this.$store.commit('removeFromFavorite', houseItem)
-        } else {
-          this.$store.commit('addToFavorite', houseItem)
-        }
-        this.toggleHeart(houseItem)
-      },
-      myFavorite(houseItem) {
-        return this.$store.state.favorite.includes(houseItem)
-      },
-      toggleHeart(houseItem) {
-        houseItem.heart = !houseItem.heart
       }
     },
 
@@ -224,21 +202,11 @@
           value="Add to cart"
           @click="$store.commit('addToCart', houseItem)"
         />
-        <button
-          @click="toggleFave(houseItem)"
-          :class="['bi', houseItem.heart ? 'bi-heart-fill' : 'bi-heart']"
-        >
-          <!-- <button
-          @click="$store.commit('addToFavorite', houseItem), toggleHeart()"
-          :class="['bi', !heart ? 'bi-heart' : 'bi-heart-fill']"
-        > -->
-          <!-- <i @click="toggleHeart" v-if="!heart" class="bi bi-heart" />
-          <i @click="toggleHeart" v-else class="bi bi-heart-fill" /> -->
-
-          <!-- <i v-if="!openNav" class="bi bi-list" />
-          <i v-else class="bi bi-x" /> -->
-          <!-- </button> -->
-        </button>
+        <input
+          type="button"
+          value="Add to favorites"
+          @click="$store.commit('addToFavorite', houseItem)"
+        />
       </div>
     </div>
   </div>
