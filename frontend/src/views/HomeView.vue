@@ -58,6 +58,14 @@
         />
       </div>
     </div>
+    <div id="section3">
+      <img
+        src="../../assets/images/sketch.jpeg"
+        alt="sketch image"
+        id="sketchImg"
+      />
+      <img src="../../assets/images/book.jpeg" alt="book image" id="bookImg" />
+    </div>
   </div>
   <h1>h1 text</h1>
   <h2>h2 text</h2>
@@ -187,7 +195,21 @@
     right: 70%;
     top: 55%;
   }
-  /* HomeView*/
+
+  /* Section 3 */
+  #section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #sketchImg {
+    width: 80%;
+    margin-top: 50px;
+  }
+  #bookImg {
+    width: 80%;
+    margin-top: 82px;
+  }
 
   @media screen and (max-width: 1144px) {
     /* Section 1 */
@@ -378,6 +400,14 @@
 
     #stylingTemplate {
       display: none;
+    }
+
+    /* Section 3 */
+    #sketchImg {
+      margin-top: 40px;
+    }
+    #bookImg {
+      margin-top: 80px;
     }
   }
 </style>
