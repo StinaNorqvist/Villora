@@ -12,7 +12,8 @@
       return {
         settings: false,
         editing: false,
-        userNameSession: null
+        userNameSession: null,
+        users: null
       }
     },
     async created() {
@@ -31,36 +32,7 @@
         this.settings = true
       },
       toggleEdit() {
-        this.editing = !this.editing
-      },
-
-      async editAccount() {
-        console.log('HEJEHEJEHEHJEHEHEHEHEH')
-        const response = await fetch('http://localhost:3000/api/user', {
-          method: 'PUT',
-          mode: 'cors',
-          cache: 'no-cache',
-          credentials: 'same-origin',
-
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          redirect: 'follow',
-          referrerPolicy: 'no-referrer',
-          body: JSON.stringify({
-            userName: this.userName,
-            userMail: this.userMail,
-            userPhone: this.userPhone,
-            userPassword: this.userPassword
-          })
-        })
-        const data = await response.json()
-
-        if (data.success) {
-          console.log('Edit konto: success')
-        } else {
-          console.log('Edit konto: no')
-        }
+        this.editing = true
       }
     }
   }
@@ -82,7 +54,51 @@
     <div v-for="user in users" :key="user" class="userInputContainer">
       <div id="userInput">
         <p>Your profile settings:</p>
-        <EditUser />
+        <form v-if="!editing">
+          <input
+            v-model="userName"
+            :placeholder="user.userName"
+            type="text"
+            name="userName"
+            id="userName"
+            required
+            disabled
+          />
+          <br />
+          <input
+            v-model="userMail"
+            :placeholder="user.userMail"
+            type="mail"
+            name="userMail"
+            id="userMail"
+            required
+            disabled
+          />
+          <br />
+          <input
+            v-model="userPhone"
+            :placeholder="user.userPhone"
+            type="tel"
+            name="userPhone"
+            id="userPhone"
+            required
+            disabled
+          />
+          <br />
+          <input
+            v-model="userPassword"
+            type="password"
+            name="userPassword"
+            id="userPassword"
+            required
+            disabled
+          />
+          <br />
+          <div class="saveEditButtonContainer">
+            <button @click="toggleEdit" class="saveEditButton">save</button>
+          </div>
+        </form>
+        <EditUser v-else />
       </div>
     </div>
     <div class="userLogoContainer">

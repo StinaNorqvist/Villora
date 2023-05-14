@@ -11,7 +11,6 @@
     <br />
     <input
       v-model="userMail"
-      :placeholder="fetchMail"
       type="mail"
       name="userMail"
       id="userMail"
@@ -43,7 +42,6 @@
 </template>
 
 <script>
-  import fetch from '../../../backend/fetch'
   export default {
     data() {
       return {
@@ -51,17 +49,12 @@
         userMail: null,
         userPhone: null,
         userPassword: null,
-        fetchUserName: null,
-        users: null,
-        fetchMail: null
+        fetchUserName: null
       }
     },
-    // async created() {
-    //   this.fetchUserName = sessionStorage.getItem('username')
-    //   this.users = await fetch.user(this.fetchUserName)
-    //   this.fetchMail = this.users
-    //   console.log(this.fetchMail, 'fetchmail')
-    // },
+    async created() {
+      this.fetchUserName = sessionStorage.getItem('username')
+    },
     methods: {
       async editAccount() {
         console.log('HEJEHEJEHEHJEHEHEHEHEH')
