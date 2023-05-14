@@ -86,7 +86,7 @@
     <i class="bi bi-arrow-left" />
   </div>
 </template>
-<style>
+<style scoped>
   /* section 1 */
   #section1 {
     display: flex;
