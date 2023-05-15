@@ -95,7 +95,7 @@
           />
           <br />
           <div class="saveEditButtonContainer">
-            <button @click="toggleEdit" class="saveEditButton">save</button>
+            <button @click="toggleEdit" class="saveEditButton">edit</button>
           </div>
         </form>
         <EditUser v-else />
@@ -141,7 +141,14 @@
     justify-content: center;
   }
   #userInput {
+    display: flex;
+    flex-direction: column;
     width: 60%;
+  }
+  #userInput form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   .saveEditButtonContainer {
     display: flex;

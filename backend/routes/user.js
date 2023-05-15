@@ -68,14 +68,14 @@ router.post("/api/user", async (req, res) => {
 });
 
 router.put("/api/user/", async (req, res) => {
-  console.log('SUCCESS')
+  console.log("SUCCESS");
   let sql =
     "UPDATE user SET userPhone = ?, userMail = ?, userPassword = ? WHERE userName = ?";
   let params = [
     req.body.userPhone,
     req.body.userMail,
     req.body.userPassword,
-    req.body.userName
+    req.body.userName,
   ];
 
   try {
@@ -193,31 +193,27 @@ router.delete("/api/user-delete", async (req, res) => {
 // LOGIN FUNCTION
 
 router.post("/auth", function (request, response) {
-  // Capture the input fields
   let userName = request.body.userName;
   let userPassword = request.body.userPassword;
-  // Ensure the input fields exist and are not empty
+  // check if you put in both username and password in the form
   if (userName && userPassword) {
-    // Execute SQL query that'll select the account from the database based on the specified username and password
     connection.query(
+      // send in data to the database where username and password ?
       "SELECT * FROM user WHERE userName = ? AND userPassword = ?",
       [userName, userPassword],
       function (error, results, fields) {
-        // If there is an issue with the query, output the error
         if (error) {
           console.log("error");
           console.error(error);
           response.status(500).send("Internal Server Error");
           return;
         }
-        // If the account exists
+        // results bigger than 0, if it doesnt match a user and password there is no result
         if (results.length > 0) {
           console.log("funkar att logga in");
-          // Authenticate the user
           request.session.loggedin = true;
           request.session.username = userName;
           console.log(request.session.username, "hej välkommen");
-          // Redirect to home page
           response.status(200).json({ success: true });
         } else {
           console.log("fel lösen");

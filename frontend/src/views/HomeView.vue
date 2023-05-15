@@ -59,12 +59,29 @@
       </div>
     </div>
     <div id="section3">
-      <img
-        src="../../assets/images/sketch.jpeg"
-        alt="sketch image"
-        id="sketchImg"
-      />
-      <img src="../../assets/images/book.jpeg" alt="book image" id="bookImg" />
+      <h1>Buy our houseplans</h1>
+      <div class="imagePlansSlider">
+        <img
+          src="../../assets/images/sketch2.png"
+          alt="sketch image"
+          class="sketchImg"
+        />
+        <img
+          src="../../assets/images/sketch1.png"
+          alt="sketch image"
+          class="sketchImg"
+          id="sketchImgSnap"
+        />
+        <img
+          src="../../assets/images/sketch3.png"
+          alt="sketch image"
+          class="sketchImg"
+        />
+      </div>
+    </div>
+    <div id="section4">
+      <h1>Order our catalogue</h1>
+      <img src="../../assets/images/book.png" alt="book image" id="bookImg" />
     </div>
   </div>
 </template>
@@ -176,13 +193,39 @@
     flex-direction: column;
     align-items: center;
   }
-  #sketchImg {
-    width: 80%;
+  #section3 h1 {
+    margin: 0;
+    margin-top: 50px;
+  }
+  .imagePlansSlider {
+    width: 95%;
+    display: flex;
+    gap: 10px;
+    margin-top: -30px;
+    overflow-x: scroll;
+    margin: 0;
+    scrollbar-width: thin;
+    /* scrollbar-color: transparent transparent; */
+    scroll-snap-type: x mandatory;
+  }
+  .sketchImg {
+    width: 800px;
+  }
+  #sketchImgSnap {
+    scroll-snap-align: center;
+  }
+  #section4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #section4 h1 {
+    margin: 0;
     margin-top: 50px;
   }
   #bookImg {
     width: 80%;
-    margin-top: 82px;
+    margin-bottom: 20px;
   }
 
   @media screen and (max-width: 1144px) {
@@ -234,9 +277,6 @@
 
       margin-top: 25px;
       margin-bottom: 45px;
-    }
-    #stylingTemplate {
-      display: none;
     }
   }
 
@@ -372,12 +412,8 @@
       margin-right: auto;
     }
 
-    #stylingTemplate {
-      display: none;
-    }
-
     /* Section 3 */
-    #sketchImg {
+    .sketchImg {
       margin-top: 40px;
     }
     #bookImg {
