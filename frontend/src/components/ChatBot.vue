@@ -93,7 +93,6 @@
 
   .message.user-message {
     display: flex;
-
     justify-content: flex-end;
   }
 
@@ -182,13 +181,14 @@
 
   .input-container {
     display: flex;
+    width: 100%;
     align-items: center;
     /* border-top: 1px solid rgba(238, 241, 245, 0.5); */
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
   }
   #input-field {
-    flex: 1;
+    width: 90%;
     height: 60px;
     border: none;
     outline: none;

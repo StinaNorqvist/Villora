@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="editAccount">
+  <form id="editForm" @submit.prevent="editAccount">
     <input
       v-model="userName"
       :placeholder="fetchUserName"
@@ -88,10 +88,9 @@
   }
 </script>
 <style>
-  form {
+  #idForm {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     width: 60%;
   }
 </style>

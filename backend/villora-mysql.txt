@@ -7,6 +7,8 @@ CREATE TABLE user (
     PRIMARY KEY (userId)
 );
 
+CREATE UNIQUE INDEX userNameIndex ON user(userName);
+
 CREATE TABLE style (
     styleId INT NOT NULL AUTO_INCREMENT,
     styleName VARCHAR(50),
@@ -267,3 +269,5 @@ FROM houseMaterial
 INNER JOIN house ON house.houseId = houseMaterial.houseMaterialHID
 INNER JOIN material ON material.materialId = houseMaterial.houseMaterialMID
 INNER JOIN style ON house.houseStyle = style.styleId;
+
+INSERT INTO user(userName, userPhone, userMail, userPassword) VALUE ('Stina Nor','123','stina@gmail.com','test')
