@@ -7,7 +7,7 @@
 
 {
 "name": "Abdul",
-"description": "Abdul, a 23-year-old software developer, excels in JavaScript, Vue, Node, SQL, WebGL, and G-SAP animations. With a strong aptitude for design and diverse creative skills, he thrives under pressure, delivering visually striking and innovative solutions.",
+"description": "Abdul, a 23-year-old software developer, excels in JavaScript, Vue, Node, SQL, WebGL, and G-SAP animations. With a strong aptitude for design and diverse creative skills, i thrive under pressure, delivering visually striking and innovative solutions.",
 "github": "https://github.com/ciscobugger",
 "linkedin": "https://www.linkedin.com/in/abdul-hussen/"
 }
@@ -37,7 +37,7 @@
 
   	{
 		"name": "Tatiana",
-		"description": "I'm Tatiana, a passionate and driven individual, I'm a student on a remarkable journey towards becoming a JavaScript full stack developer. At 34 years old, born and raised in Sweden with parents hailing from the Cape Verde Islands, I embodies a fusion of cultures and experiences that shapes my unique perspective.",
+		"description": "I'm Tatiana, a passionate and driven individual, I'm a student on a remarkable journey towards becoming a JavaScript full stack developer. At 34 years old, born and raised in Sweden with parents hailing from the Cape Verde Islands."",
 		"github": "https://github.com/lopesdaluz",
 		"linkedin": "https://linkedin.com/in/tlopesdaluz"
 	}
